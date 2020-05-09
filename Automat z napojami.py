@@ -57,4 +57,8 @@ class Obsluga_automatu(Produkty, Monety):
                 daj = 2
         return daj
 
-  
+   def usun_asortyment(self):
+        for x in range(len(self.asortyment)):
+            if self.asortyment[x][0] == self.numer:
+                self.asortyment[x][2] = self.asortyment[x][2] - 1
+        print("Napój zostal usuniety!")
