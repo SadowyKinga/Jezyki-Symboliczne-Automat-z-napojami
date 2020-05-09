@@ -62,3 +62,34 @@ class Obsluga_automatu(Produkty, Monety):
             if self.asortyment[x][0] == self.numer:
                 self.asortyment[x][2] = self.asortyment[x][2] - 1
         print("Napój zostal usuniety!")
+        
+  def reszta(self, roznica):
+        roznica = round(float(roznica), 3)#funkcja round () zwraca liczbe zmiennoprzecinkowa ktara jest zaokraglona wersja podanej liczby z okreslona liczba miejsc poprzecinku 
+        i = 0
+        pomocnicza = []
+        dostepna_ilosc = sum(self.dostepnosc_monety)
+        wypisz = ""
+        j = True
+        if roznica > dostepna_ilosc:
+            wypisz = "Prosze wrzucic tylko odliczona kwote!"
+            return wypisz
+        else:
+            while roznica > 0:
+                if i < len(self.dostepnosc_monety):
+                    if roznica >= self.dostepnosc_monety[i]:
+                        roznica = round((roznica - self.dostepnosc_monety[i]), 3)
+                        pomocnicza.append(self.dostepnosc_monety[i])
+                        print(roznica)
+                else:
+                    wypisz = "Prosze wrzucic tylko odliczona kwote!"
+                    pomocnicza = []
+                    break
+                i = i + 1
+            for i in range(len(pomocnicza)):
+                Monety.bierz_monety(self, pomocnicza[i])
+                j = False
+            print()
+            print(self.dostepnosc_monety)
+            wypisz = wypisz + "\n Reszta =  " + str(round(sum(pomocnicza), 3)) + " zł"
+            return wypisz, j
+        
