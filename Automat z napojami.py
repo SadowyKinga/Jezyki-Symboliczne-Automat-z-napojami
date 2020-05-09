@@ -40,3 +40,21 @@ class Produkty(object):
     print("\nAsortyment w automacie to:\n")
     print(asortyment)
     
+    #--------------------- KLASA DO OBSLUGI AUTOMATU ------------------------------------------
+class Obsluga_automatu(Produkty, Monety):
+
+    def __init__(self, numer):
+        self.numer = numer
+
+    def sprawdz(self):
+        if self.numer not in range(30, 51):  #range - to nie generator
+            daj = 0
+        else:
+            x = Produkty.podaj_ilosc(self, self.numer)
+            if x != 0:
+                daj = 1
+            else:
+                daj = 2
+        return daj
+
+  
