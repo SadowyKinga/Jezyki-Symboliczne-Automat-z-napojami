@@ -1,4 +1,5 @@
 import random as r
+from tkinter import *
 
 #--------------------- KLASA MONET ------------------------------------------
 class Monety(object):
@@ -126,3 +127,12 @@ class Tkinter(object):
         self.roznica = self.wrzucone + "-" + self.cena
         self.roznica = str(round(eval(self.roznica), 3))
         return self.roznica
+
+#tworze glowne okno automatu
+tk = Tkinter() 
+window = Tk() 
+window.title("Automat z napojami.")
+HEIGHT = 800 #rozmiary okna 
+WIDTH = 1400 #rozmiary okna
+canva = Canvas(window, height=HEIGHT, width=WIDTH)
+canva.pack()
