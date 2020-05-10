@@ -92,4 +92,37 @@ class Obsluga_automatu(Produkty, Monety):
             print(self.dostepnosc_monety)
             wypisz = wypisz + "\n Reszta =  " + str(round(sum(pomocnicza), 3)) + " zł"
             return wypisz, j
-        
+       
+#--------------------- KLASA TKINTER ------------------------------------------
+class Tkinter(object):
+    wypisz = ''
+    wrzucone = '0'
+    cena = '0'
+    lista = []
+    numer = '0'
+    roznica = '0'
+    d = 0
+
+    def __init__(self):
+        wypisz = self.wypisz
+        wrzucone = self.wrzucone
+        cena = self.cena
+        lista = self.lista
+        roznica = self.roznica
+        self.d = Obsluga_automatu(self.numer)
+        self.g = Monety()
+
+    def przycisk(self, num):
+        self.wypisz = self.wypisz + str(num)
+        string.set(self.wypisz)
+
+    def moneta(self, num):
+        self.wrzucone = self.wrzucone + "+" + str(num)
+        self.wrzucone = str(round(eval(self.wrzucone), 3))
+        string.set(self.wrzucone)
+        self.lista.append(num)
+
+    def obliczam_roznice(self):
+        self.roznica = self.wrzucone + "-" + self.cena
+        self.roznica = str(round(eval(self.roznica), 3))
+        return self.roznica
