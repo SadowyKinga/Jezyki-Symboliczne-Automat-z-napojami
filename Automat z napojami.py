@@ -136,3 +136,12 @@ HEIGHT = 800 #rozmiary okna
 WIDTH = 1400 #rozmiary okna
 canva = Canvas(window, height=HEIGHT, width=WIDTH)
 canva.pack()
+
+#--------------------- STRUKTURA IKON ------------------------------------------
+picture_1 = PhotoImage(file = "zdjecia/tlo.png")
+
+
+#--------------------- POLE AUTOMATU 1 ------------------------------------------
+pole_nr_1 = Label(window, image = picture_1)  #duze pole na ktorym wszystkie pozostale ikonki mamy
+pole_nr_1.place(relwidth = 1, relheight = 1)
+
