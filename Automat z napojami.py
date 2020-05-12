@@ -58,13 +58,13 @@ class Obsluga_automatu(Produkty, Monety):
                 daj = 2
         return daj
 
-   def usun_asortyment(self):
+    def usun_asortyment(self):
         for x in range(len(self.asortyment)):
             if self.asortyment[x][0] == self.numer:
                 self.asortyment[x][2] = self.asortyment[x][2] - 1
         print("Napój zostal usuniety!")
         
-   def reszta(self, roznica):
+    def reszta(self, roznica):
         roznica = round(float(roznica), 3)#funkcja round () zwraca liczbe zmiennoprzecinkowa ktara jest zaokraglona wersja podanej liczby z okreslona liczba miejsc poprzecinku 
         i = 0
         pomocnicza = []
@@ -151,6 +151,11 @@ jeden_zl = PhotoImage(file = "zdjecia/1zl.png")
 dwa_zl = PhotoImage(file = "zdjecia/2zl.png")
 piec_zl = PhotoImage(file = "zdjecia/5zl.png")
 string = StringVar()
+string.set(
+    'Podaj numer (30-50) a następnie co chcesz zrobić'
+    '\n Zielony przycisk - rozpoczecie zakupu'
+    '\n Czerwony - anulowanie zakupu,'
+    '\n Niebieski - sprawdzenie dostepnosci towaru')
 
 #--------------------- POLE AUTOMATU 1 ------------------------------------------
 pole_nr_1 = Label(window, image = picture_1)  #duze pole na ktorym wszystkie pozostale ikonki mamy
@@ -161,6 +166,10 @@ ramka_nr_1 = Frame(window, width = 500, height = 500, cursor = "dot", bg = "whit
 ramka_nr_1.place(relx = 0.05, rely = 0.25, relwidth = 0.5, relheight = 0.5)
 ramka_nr_2 = Frame(window, width = 500, height = 500, cursor = "dot", bg = "black")
 ramka_nr_2.place(relx = 0.6, rely = 0, relwidth = 0.4, relheight = 1)
+
+#--------------------- KOLEJNE POLE AUTOMATU 2 --------------------------------------
+pole_nr_2 = Label(ramka_nr_1, bg = "black", foreground = "white", font = ("Arial",23, "italic"), textvariable = string, anchor = CENTER)
+pole_nr_2.place(relx = 0, rely = 0, relwidth = 1, relheight = 1)
 
 #--------------------- PRZYCISKI --------------------------------------
 przycisk_1gr = Button(ramka_nr_2, text = "1grosz", command = lambda: tk.moneta(0.01), font = ("Arial", 50), image = jeden_grosz, background = "black", foreground = "white") 
