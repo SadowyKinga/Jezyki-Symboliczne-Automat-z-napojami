@@ -163,7 +163,7 @@ pole_nr_1.place(relwidth = 1, relheight = 1)
 
 #--------------------- RAMKI ------------------------------------------
 ramka_nr_1 = Frame(window, width = 500, height = 500, cursor = "dot", bg = "white")
-ramka_nr_1.place(relx = 0.05, rely = 0.25, relwidth = 0.5, relheight = 0.5)
+ramka_nr_1.place(relx = 0.05, rely = 0.01, relwidth = 0.5, relheight = 0.3)
 ramka_nr_2 = Frame(window, width = 500, height = 500, cursor = "dot", bg = "black")
 ramka_nr_2.place(relx = 0.6, rely = 0, relwidth = 0.4, relheight = 1)
 
