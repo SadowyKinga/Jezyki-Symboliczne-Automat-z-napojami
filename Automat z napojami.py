@@ -64,7 +64,7 @@ class Obsluga_automatu(Produkty, Monety):
                 self.asortyment[x][2] = self.asortyment[x][2] - 1
         print("Napój zostal usuniety!")
         
-  def reszta(self, roznica):
+   def reszta(self, roznica):
         roznica = round(float(roznica), 3)#funkcja round () zwraca liczbe zmiennoprzecinkowa ktara jest zaokraglona wersja podanej liczby z okreslona liczba miejsc poprzecinku 
         i = 0
         pomocnicza = []
@@ -139,9 +139,46 @@ canva.pack()
 
 #--------------------- STRUKTURA IKON ------------------------------------------
 picture_1 = PhotoImage(file = "zdjecia/tlo.png")
-
+tak = PhotoImage(file = "zdjecia/tak.png")
+nie = PhotoImage(file = "zdjecia/nie.png")
+jeden_grosz = PhotoImage(file = "zdjecia/1grosz.png")
+dwa_grosze = PhotoImage(file = "zdjecia/2grosze.png")
+piec_groszy = PhotoImage(file = "zdjecia/5groszy.png")
+dziesiec_groszy = PhotoImage(file = "zdjecia/10groszy.png")
+dwadziescia_groszy = PhotoImage(file = "zdjecia/20groszy.png")
+piecdziesiat_groszy = PhotoImage(file = "zdjecia/50groszy.png")
+jeden_zl = PhotoImage(file = "zdjecia/1zl.png")
+dwa_zl = PhotoImage(file = "zdjecia/2zl.png")
+piec_zl = PhotoImage(file = "zdjecia/5zl.png")
+string = StringVar()
 
 #--------------------- POLE AUTOMATU 1 ------------------------------------------
 pole_nr_1 = Label(window, image = picture_1)  #duze pole na ktorym wszystkie pozostale ikonki mamy
 pole_nr_1.place(relwidth = 1, relheight = 1)
 
+#--------------------- RAMKI ------------------------------------------
+ramka_nr_1 = Frame(window, width = 500, height = 500, cursor = "dot", bg = "white")
+ramka_nr_1.place(relx = 0.05, rely = 0.25, relwidth = 0.5, relheight = 0.5)
+ramka_nr_2 = Frame(window, width = 500, height = 500, cursor = "dot", bg = "black")
+ramka_nr_2.place(relx = 0.6, rely = 0, relwidth = 0.4, relheight = 1)
+
+#--------------------- PRZYCISKI --------------------------------------
+przycisk_1gr = Button(ramka_nr_2, text = "1grosz", command = lambda: tk.moneta(0.01), font = ("Arial", 50), image = jeden_grosz, background = "black", foreground = "white") 
+przycisk_2gr = Button(ramka_nr_2, text = "2grosze", command = lambda: tk.moneta(0.02), font = ("Arial", 50), image = dwa_grosze, background = "black", foreground = "white") 
+przycisk_5gr = Button(ramka_nr_2, text = "5groszy", command = lambda: tk.moneta(0.05), font = ("Arial", 50), image = piec_groszy, background = "black", foreground = "white") 
+przycisk_10gr = Button(ramka_nr_2, text = "10groszy", command = lambda: tk.moneta(0.1), font = ("Arial", 50), image = dziesiec_groszy, background = "black", foreground = "white") 
+przycisk_20gr = Button(ramka_nr_2, text = "20groszy", command = lambda: tk.moneta(0.2), font = ("Arial", 50), image = dwadziescia_groszy, background = "black", foreground = "white") 
+przycisk_50gr = Button(ramka_nr_2, text = "50groszy", command = lambda: tk.moneta(0.5), font = ("Arial", 50), image = piecdziesiat_groszy, background = "black", foreground = "white") 
+przycisk_1zl = Button(ramka_nr_2, text = "1zł", command = lambda: tk.moneta(1.0), font = ("Arial", 50), image = jeden_zl, background = "black", foreground = "white") 
+przycisk_2zl = Button(ramka_nr_2, text = "2zł", command = lambda: tk.moneta(2.0), font = ("Arial", 50), image = dwa_zl, background = "black", foreground = "white") 
+przycisk_5zl = Button(ramka_nr_2, text = "5zł", command = lambda: tk.moneta(5.0), font = ("Arial", 50), image = piec_zl, background = "black", foreground = "white") 
+
+przycisk_1gr.place(relx = 0.79, rely = 0.77, relwidth = 0.10, relheight = 0.10)
+przycisk_2gr.place(relx = 0.79, rely = 0.66, relwidth = 0.10, relheight = 0.10)
+przycisk_5gr.place(relx = 0.79, rely = 0.55, relwidth = 0.10, relheight = 0.10)
+przycisk_10gr.place(relx = 0.79, rely = 0.44, relwidth = 0.10, relheight = 0.10)
+przycisk_20gr.place(relx = 0.79, rely = 0.33, relwidth = 0.10, relheight = 0.10)
+przycisk_50gr.place(relx = 0.79, rely = 0.22, relwidth = 0.10, relheight = 0.10)
+przycisk_1zl.place(relx = 0.90, rely = 0.58, relwidth = 0.10, relheight = 0.10)
+przycisk_2zl.place(relx = 0.90, rely = 0.47, relwidth = 0.10, relheight = 0.10)
+przycisk_5zl.place(relx = 0.90, rely = 0.36, relwidth = 0.10, relheight = 0.10)
