@@ -127,6 +127,7 @@ class Tkinter(object):
         self.roznica = self.wrzucone + "-" + self.cena
         self.roznica = str(round(eval(self.roznica), 3))
         return self.roznica
+    
 #--------------------- OBSLUGA PRZYCISKOW FUNKCYJNYCH ------------------------------------------
     def przycisk_tak(self):
         self.numer = eval(self.wypisz)
@@ -201,6 +202,9 @@ WIDTH = 1400 #rozmiary okna
 canva = Canvas(window, height=HEIGHT, width=WIDTH)
 canva.pack()
 
+#--------------------- ASORTYMENT ------------------------------------------
+woda_niegazowana = PhotoImage(file = "zdjecia/woda_niegazowana.png")
+
 #--------------------- STRUKTURA IKON ------------------------------------------
 picture_1 = PhotoImage(file = "zdjecia/tlo.png")
 tak = PhotoImage(file = "zdjecia/tak.png")
@@ -232,6 +236,10 @@ ramka_nr_2 = Frame(window, width = 500, height = 500, cursor = "dot", background
 ramka_nr_2.place(relx = 0.6, rely = 0, relwidth = 0.4, relheight = 1)
 ramka_nr_3 = Frame(window, width = 500, height = 500, cursor = "dot", background = "white")
 ramka_nr_3.place(relx = 0.05, rely = 0.33, relwidth = 0.50, relheight = 0.1)
+ramka_nr_4 = Frame(window, width = 500, height = 500, cursor = "dot", background = "white")
+ramka_nr_4.place(relx = 0.05, rely = 0.44, relwidth = 0.5, relheight = 0.5)
+ramka_nr_5 = Frame(window, width = 500, height = 500, cursor = "dot", background = "pink")
+ramka_nr_5.place(relx = 0.05, rely = 0.62, relwidth = 0.5, relheight = 0.02)
 
 #--------------------- KOLEJNE POLE AUTOMATU 2 --------------------------------------
 pole_nr_2 = Label(ramka_nr_1, bg = "black", foreground = "white", font = ("Arial",23, "italic"), textvariable = string, anchor = CENTER)
@@ -269,3 +277,7 @@ przycisk_tak.place(relx = 0.08, rely = 0.8, relwidth = 0.1, relheight = 0.1)
 przycisk_nie.place(relx = 0.5, rely = 0.8, relwidth = 0.1, relheight = 0.1)
 przycisk_sprawdz.place(relx = 0.08, rely = 0.9, relwidth = 0.52, relheight = 0.05)
 przycisk_do_zatwietdzania.place(relx = 0.66, rely = 0.9, relwidth = 0.3, relheight = 0.05)
+
+#--------------------- ZDJECIA - ASORTYMENT --------------------------------------
+zdjecie_1 = Label(ramka_nr_4, image = woda_niegazowana)
+zdjecie_1.place(relx = 0.01, rely = 0.01, relwidth = 0.08, relheight = 0.35)
