@@ -127,7 +127,71 @@ class Tkinter(object):
         self.roznica = self.wrzucone + "-" + self.cena
         self.roznica = str(round(eval(self.roznica), 3))
         return self.roznica
+#--------------------- OBSLUGA PRZYCISKOW FUNKCYJNYCH ------------------------------------------
+    def przycisk_tak(self):
+        self.numer = eval(self.wypisz)
+        self.d = Obsluga_automatu(self.numer)
+        if self.d.sprawdz() == 1:
+            self.cena = str(self.d.podaj_cene(self.numer))
+            self.wypisz = "Cena wybranego produktu to " + self.cena + " zł. \nWrzuć monety."
+            string.set(self.wypisz)
+            self.wypisz = ""
+        else:
+            self.wypisz = "Nie mogę sprzedać tego produktu.\nSprawdź czy jest on dostępny \nlub czy wybrałeś dobry numer."
+            string.set(self.wypisz)
+            raise BladNumeruLubBrakProduktu
 
+    
+    def przycisk_sprawdz(self):
+        self.numer = eval(self.wypisz)
+        self.d = Obsluga_automatu(self.numer)
+        if self.d.sprawdz() == 0:
+            self.wypisz = "Podałeś zły numer produktu, \nkliknij czerwony przycisk i spróbuj jescze raz."
+            string.set(self.wypisz)
+            raise BlednyNumer()
+        elif self.d.sprawdz() == 1:
+            self.wypisz = "Produkt jest dostępny.\n"
+            string.set(self.wypisz)
+            self.cena = str(self.d.podaj_cene(self.numer))
+            self.wypisz = self.wypisz + "Cena wybranego produktu to " + self.cena + " zł."
+            string.set(self.wypisz)
+            self.wypisz = ""
+        elif self.d.sprawdz() == 2:
+            self.wypisz = "Produkt jest niedostępny."
+            string.set(self.wypisz)
+            raise ProduktWyprzedany()
+
+    def przycisk_do_czyszczenia(self):
+        self.wypisz = ""
+        string.set(self.wypisz)
+        if self.wrzucone is not "0":
+            string.set("Zwracam wrzucone pieniądze.")
+            self.wrzucone = "0"
+        else:
+            string.set(
+                'Podaj numer (30-50) a następnie co chcesz zrobić \n Zielony przycisk - rozpoczecie zakupu\n Czerwony - anulowanie zakupu, \n Niebieski - sprawdzenie dostepnosci towaru')
+
+    def przycisk_do_zatwietdzania(self):
+        if float(self.wrzucone) < float(self.cena):
+            brak = self.cena + "-" + self.wrzucone
+            brak = str(round(eval(brak), 3))
+            self.wypisz = "Do zapłaty pozostało jeszcze " + brak
+            string.set(self.wypisz)
+        if float(self.wrzucone) >= float(self.cena):
+            self.wypisz = 'Wydawanie produktu.'
+            string.set(self.wypisz)
+            roz = Tkinter.obliczam_roznice(self)
+            k = self.d.reszta(roz)
+            string.set(self.wypisz + k[0])
+            if k[1] == False:
+                self.wrzucone = '0'
+            self.d.usun_asortyment()
+            for i in range(len(self.lista)):
+                self.g.dodaj_monety(self.lista[i])
+            print("Dodano monety.")
+            self.lista = []
+            self.wrzucone = '0'
+            
 #tworze glowne okno automatu
 tk = Tkinter() 
 window = Tk() 
@@ -162,14 +226,18 @@ pole_nr_1 = Label(window, image = picture_1)  #duze pole na ktorym wszystkie poz
 pole_nr_1.place(relwidth = 1, relheight = 1)
 
 #--------------------- RAMKI ------------------------------------------
-ramka_nr_1 = Frame(window, width = 500, height = 500, cursor = "dot", bg = "white")
+ramka_nr_1 = Frame(window, width = 500, height = 500, cursor = "dot", background = "white")
 ramka_nr_1.place(relx = 0.05, rely = 0.01, relwidth = 0.5, relheight = 0.3)
-ramka_nr_2 = Frame(window, width = 500, height = 500, cursor = "dot", bg = "black")
+ramka_nr_2 = Frame(window, width = 500, height = 500, cursor = "dot", background = "black")
 ramka_nr_2.place(relx = 0.6, rely = 0, relwidth = 0.4, relheight = 1)
+ramka_nr_3 = Frame(window, width = 500, height = 500, cursor = "dot", background = "white")
+ramka_nr_3.place(relx = 0.05, rely = 0.33, relwidth = 0.50, relheight = 0.1)
 
 #--------------------- KOLEJNE POLE AUTOMATU 2 --------------------------------------
 pole_nr_2 = Label(ramka_nr_1, bg = "black", foreground = "white", font = ("Arial",23, "italic"), textvariable = string, anchor = CENTER)
 pole_nr_2.place(relx = 0, rely = 0, relwidth = 1, relheight = 1)
+pole_nr_3 = Label(ramka_nr_3, text = 'Napoje', font = ("Arial",23, "italic"), foreground="red")
+pole_nr_3.place(relwidth = 1, relheight = 1)
 
 #--------------------- PRZYCISKI --------------------------------------
 przycisk_1gr = Button(ramka_nr_2, text = "1grosz", command = lambda: tk.moneta(0.01), font = ("Arial", 50), image = jeden_grosz, background = "black", foreground = "white") 
@@ -182,6 +250,11 @@ przycisk_1zl = Button(ramka_nr_2, text = "1zł", command = lambda: tk.moneta(1.0
 przycisk_2zl = Button(ramka_nr_2, text = "2zł", command = lambda: tk.moneta(2.0), font = ("Arial", 50), image = dwa_zl, background = "black", foreground = "white") 
 przycisk_5zl = Button(ramka_nr_2, text = "5zł", command = lambda: tk.moneta(5.0), font = ("Arial", 50), image = piec_zl, background = "black", foreground = "white") 
 
+przycisk_tak = Button(ramka_nr_2, image = tak, background = "black", borderwidth = 0, command = tk.przycisk_tak)
+przycisk_nie = Button(ramka_nr_2, image = nie, background = "black", borderwidth = 0, command = tk.przycisk_do_czyszczenia)
+przycisk_sprawdz = Button(ramka_nr_2, text = "SPRAWDZ", font = 40, borderwidth = 0, background = "navy", foreground = "white", command = tk.przycisk_sprawdz)
+przycisk_do_zatwietdzania = Button(ramka_nr_2, text = "ZATWIERDZ", font = 40, borderwidth = 0, background = "green", foreground = "white", command = tk.przycisk_do_zatwietdzania)
+
 przycisk_1gr.place(relx = 0.79, rely = 0.77, relwidth = 0.10, relheight = 0.10)
 przycisk_2gr.place(relx = 0.79, rely = 0.66, relwidth = 0.10, relheight = 0.10)
 przycisk_5gr.place(relx = 0.79, rely = 0.55, relwidth = 0.10, relheight = 0.10)
@@ -191,3 +264,8 @@ przycisk_50gr.place(relx = 0.79, rely = 0.22, relwidth = 0.10, relheight = 0.10)
 przycisk_1zl.place(relx = 0.90, rely = 0.58, relwidth = 0.10, relheight = 0.10)
 przycisk_2zl.place(relx = 0.90, rely = 0.47, relwidth = 0.10, relheight = 0.10)
 przycisk_5zl.place(relx = 0.90, rely = 0.36, relwidth = 0.10, relheight = 0.10)
+
+przycisk_tak.place(relx = 0.08, rely = 0.8, relwidth = 0.1, relheight = 0.1)
+przycisk_nie.place(relx = 0.5, rely = 0.8, relwidth = 0.1, relheight = 0.1)
+przycisk_sprawdz.place(relx = 0.08, rely = 0.9, relwidth = 0.52, relheight = 0.05)
+przycisk_do_zatwietdzania.place(relx = 0.66, rely = 0.9, relwidth = 0.3, relheight = 0.05)
