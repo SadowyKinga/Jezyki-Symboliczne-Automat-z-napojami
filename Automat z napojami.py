@@ -93,6 +93,14 @@ class Obsluga_automatu(Produkty, Monety):
             print(self.dostepnosc_monety)
             wypisz = wypisz + "\n Reszta =  " + str(round(sum(pomocnicza), 3)) + " zł"
             return wypisz, j
+        
+#----------------------- WYJATKI ---------------------------------------------
+class BladNumeruLubBrakProduktu(Exception):
+    pass
+class BlednyNumer(Exception):
+    pass
+class ProduktWyprzedany(Exception):
+    pass
        
 #--------------------- KLASA TKINTER ------------------------------------------
 class Tkinter(object):
@@ -128,14 +136,6 @@ class Tkinter(object):
         self.roznica = str(round(eval(self.roznica), 3))
         return self.roznica
     
-#----------------------- WYJATKI ---------------------------------------------
-class BladNumeruLubBrakProduktu(Exception):
-    pass
-class BlednyNumer(Exception):
-    pass
-class ProduktWyprzedany(Exception):
-    pass
-
 #--------------------- OBSLUGA PRZYCISKOW FUNKCYJNYCH ------------------------------------------
     def przycisk_tak(self):
         self.numer = eval(self.wypisz)
@@ -267,17 +267,23 @@ ramka_nr_3.place(relx = 0.05, rely = 0.33, relwidth = 0.50, relheight = 0.1)
 ramka_nr_4 = Frame(window, width = 500, height = 500, cursor = "dot", background = "white")
 ramka_nr_4.place(relx = 0.05, rely = 0.44, relwidth = 0.5, relheight = 0.45)
 ramka_nr_5 = Frame(window, width = 500, height = 500, cursor = "dot", background = "pink")
-ramka_nr_5.place(relx = 0.05, rely = 0.610, relwidth = 0.5, relheight = 0.02)
+ramka_nr_5.place(relx = 0.05, rely = 0.610, relwidth = 0.5, relheight = 0.04)
 ramka_nr_6 = Frame(window, width = 500, height = 500, cursor = "dot", background = "white")
-ramka_nr_6.place(relx = 0.05, rely = 0.625, relwidth = 0.5, relheight = 0.04)
+ramka_nr_6.place(relx = 0.05, rely = 0.645, relwidth = 0.5, relheight = 0.02)
 ramka_nr_7 = Frame(window, width = 500, height = 500, cursor = "dot", background = "pink")
-ramka_nr_7.place(relx = 0.05, rely = 0.8665, relwidth = 0.5, relheight = 0.02)
+ramka_nr_7.place(relx = 0.05, rely = 0.8665, relwidth = 0.5, relheight = 0.04)
 
 #--------------------- KOLEJNE POLE AUTOMATU 2 --------------------------------------
 pole_nr_2 = Label(ramka_nr_1, bg = "black", foreground = "white", font = ("Arial",23, "italic"), textvariable = string, anchor = CENTER)
 pole_nr_2.place(relx = 0, rely = 0, relwidth = 1, relheight = 1)
 pole_nr_3 = Label(ramka_nr_3, text = 'Napoje', font = ("Arial",23, "italic"), foreground="red")
 pole_nr_3.place(relwidth = 1, relheight = 1)
+
+#--------------------- NUMERKI DANEGO ASORTYMENTU--------------------------------------
+pole_nr_4 = Label(ramka_nr_5, text = '30.      31.      32.     33.     34.      35.      36.      37.      38.      39.      40.', font = ("Arial",15), background = "pink", foreground="black")
+pole_nr_4.place(relwidth = 1.009, relheight = 0.8)
+pole_nr_5 = Label(ramka_nr_7, text = '  41.      42.        43.       44.        45.      46.        47.       48.        49.      50.', font = ("Arial",15), background = "pink", foreground="black")
+pole_nr_5.place(relwidth = 1.009, relheight = 0.8)
 
 #--------------------- PRZYCISKI --------------------------------------
 przycisk_1gr = Button(ramka_nr_2, text = "1grosz", command = lambda: tk.moneta(0.01), font = ("Arial", 50), image = jeden_grosz, background = "black", foreground = "white") 
