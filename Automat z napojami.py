@@ -128,6 +128,14 @@ class Tkinter(object):
         self.roznica = str(round(eval(self.roznica), 3))
         return self.roznica
     
+#----------------------- WYJATKI ---------------------------------------------
+class BladNumeruLubBrakProduktu(Exception):
+    pass
+class BlednyNumer(Exception):
+    pass
+class ProduktWyprzedany(Exception):
+    pass
+
 #--------------------- OBSLUGA PRZYCISKOW FUNKCYJNYCH ------------------------------------------
     def przycisk_tak(self):
         self.numer = eval(self.wypisz)
