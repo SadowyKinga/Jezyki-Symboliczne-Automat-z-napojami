@@ -295,7 +295,8 @@ string.set(
     '\n Czerwony - anulowanie zakupu,'
     '\n Niebieski - sprawdzenie dostepnosci towaru')
 
-"""Tworzę duże pole do którego następnie wgram tlo by urozmaicic wizualnie automat. """
+"""Tworzę duże pole do którego następnie wgram tlo by urozmaicic wizualnie automat. 
+    *Label - sluży do wyświetlania elementówgraficznych lub tekstu - przyjmuje argumenty (window - uchwyt okna głównego, image - zdjęcie z pliku). """
 
 #--------------------- POLE AUTOMATU 1 ------------------------------------------
 pole_nr_1 = Label(window, image = picture_1)  #duze pole na ktorym wszystkie pozostale ikonki mamy
@@ -322,10 +323,12 @@ ramka_nr_7.place(relx = 0.05, rely = 0.8665, relwidth = 0.5, relheight = 0.04)
 """Tworzę kolejne pola - pierwsze do informacji ogólnej co nalezy zrobic by rozpocząc transakcje, drugie do asortymentu. """
 
 #--------------------- KOLEJNE POLE AUTOMATU 2 --------------------------------------
-pole_nr_2 = Label(ramka_nr_1, background = "black", foreground = "white", font = ("Arial",21, "italic"), textvariable = string, anchor = CENTER)
+pole_nr_2 = Label(ramka_nr_1, background = "black", foreground = "white", font = ("Arial",21, "italic"), textvariable = string, anchor = CENTER) #background - kolor tła, foreground - kolor czcionki, font - czcionka jakiej uzywamy do wyświetlania tekstu , anchor - kontroluje gdzie ustawiamy np. tekst -> N, NE, E, SE, S, SW, W, NW, CENTER
 pole_nr_2.place(relx = 0, rely = 0, relwidth = 1, relheight = 1)  #relx - polożenie poziome, rely - połozenie pionowe, relwidth - rozmiar szerokosci, relheight - rozmiar wysokosci
-pole_nr_3 = Label(ramka_nr_3, text = 'Napoje', font = ("Arial",23, "italic"), foreground="red", anchor = CENTER) #anchor - położenie tekstu tu akurat wysrodkowane 
+pole_nr_3 = Label(ramka_nr_3, text = 'Napoje', font = ("Arial",23, "italic"), foreground="red", anchor = CENTER) #anchor - położenie tekstu tu akurat wysrodkowane, foreground - 
 pole_nr_3.place(relwidth = 1, relheight = 1)
+
+"""Tworzę kolejne pola - numerki dla danego zdj z asortymentu. """
 
 #--------------------- NUMERKI DANEGO ASORTYMENTU--------------------------------------
 pole_nr_4 = Label(ramka_nr_5, text = '30.      31.      32.     33.     34.      35.      36.      37.      38.      39.      40.', font = ("Arial",15), background = "pink", foreground="black")
@@ -333,6 +336,8 @@ pole_nr_4.place(relwidth = 1.009, relheight = 0.8)
 pole_nr_5 = Label(ramka_nr_7, text = '  41.      42.        43.       44.        45.      46.        47.       48.        49.      50.', font = ("Arial",15), background = "pink", foreground="black")
 pole_nr_5.place(relwidth = 1.009, relheight = 0.8)
 
+"""Tworzę przyciski do wrzucania monet i ustalam obsługe ich kliknięcia, oraz tytuł, rodzaj i wielkosc czcionki w tytule
+borderwidth -szerokośc obramowania, activebackground - kolor pierwszoplanowy, text - tekst do wyswietlania"""
 #--------------------- PRZYCISKI --------------------------------------
 przycisk_1gr = Button(ramka_nr_2, text = "1grosz", borderwidth = 0, command = lambda: tk.moneta(0.01), font = ("Arial", 50), image = jeden_grosz, activebackground = "black", background = "black") 
 przycisk_2gr = Button(ramka_nr_2, text = "2grosze", borderwidth = 0, command = lambda: tk.moneta(0.02), font = ("Arial", 50), image = dwa_grosze, activebackground = "black", background = "black") 
@@ -386,6 +391,7 @@ przycisk_nr_7.place(relx = 0.1, rely = 0.5, relwidth = 0.1, relheight = 0.1)
 przycisk_nr_8.place(relx = 0.3, rely = 0.5, relwidth = 0.1, relheight = 0.1)
 przycisk_nr_9.place(relx = 0.5, rely = 0.5, relwidth = 0.1, relheight = 0.1)
 
+""" Dodaje fotografie asortymentu - produkty z pliku zdjecia, użyte następnie do wizualnego obrazowania automatu oraz ponizej ustalam pozycje i miejsce gdzie maja się znajdować """
 #--------------------- ZDJECIA - ASORTYMENT --------------------------------------
 zdjecie_1 = Label(ramka_nr_4, image = woda_niegazowana)
 zdjecie_2 = Label(ramka_nr_4, image = woda_gazowana)
