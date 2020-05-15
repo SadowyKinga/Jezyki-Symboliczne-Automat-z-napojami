@@ -54,6 +54,7 @@ class Produkty(object):
                 return self.asortyment[x][2]
     print("\nAsortyment w automacie to:\n")
     print(asortyment)
+    
 """Klasa do obslugi automatu służy do obslugi maszyny.
     METODY:
     *sprawdz - sprawdza ilosc danego asortymentu,
@@ -126,7 +127,13 @@ class BlednyNumer(Exception):
     pass
 class ProduktWyprzedany(Exception):
     pass
-       
+
+"""Klasy Tkinter
+    ZMIENNE:
+    *przycisk - zatwierdzenie kliknietego przycisku -> komunikat,
+    *moneta - sluzy do wrzucania monet, sumuje,
+    *obliczam_roznice - oblicza różnice pomiędzy kwota zaplaconą przez klienta a kwotą produktu z asortymentu."""
+
 #--------------------- KLASA TKINTER ------------------------------------------
 class Tkinter(object):
     wypisz = ''
@@ -181,7 +188,6 @@ class Tkinter(object):
             self.wypisz = "Nie mogę sprzedać tego produktu.\nSprawdź czy jest on dostępny \nlub czy wybrałeś dobry numer."
             string.set(self.wypisz)
             raise BladNumeruLubBrakProduktu
-
     
     def przycisk_sprawdz(self):
         self.numer = eval(self.wypisz)
@@ -242,6 +248,8 @@ WIDTH = 1400 #rozmiary okna
 canva = Canvas(window, height=HEIGHT, width=WIDTH)
 canva.pack()
 
+""" Dodaje fotografie asortymentu z pliku zdjecia, użyte następnie do wizualnego obrazowania automatu. """
+
 #--------------------- ASORTYMENT ------------------------------------------
 woda_niegazowana = PhotoImage(file = "zdjecia/woda_niegazowana.png")
 woda_gazowana = PhotoImage(file = "zdjecia/woda_gazowana.png")
@@ -265,6 +273,8 @@ sprite = PhotoImage(file = "zdjecia/sprite.png")
 tiger = PhotoImage(file = "zdjecia/tiger.png")
 black = PhotoImage(file = "zdjecia/black.png")
 
+""" Dodaje fotografie ikon - tło, monety z pliku zdjecia, użyte następnie do wizualnego obrazowania automatu. """
+
 #--------------------- STRUKTURA IKON ------------------------------------------
 picture_1 = PhotoImage(file = "zdjecia/tlo.png")
 tak = PhotoImage(file = "zdjecia/tak.png")
@@ -285,14 +295,18 @@ string.set(
     '\n Czerwony - anulowanie zakupu,'
     '\n Niebieski - sprawdzenie dostepnosci towaru')
 
+"""Tworzę duże pole do którego następnie wgram tlo by urozmaicic wizualnie automat. """
+
 #--------------------- POLE AUTOMATU 1 ------------------------------------------
 pole_nr_1 = Label(window, image = picture_1)  #duze pole na ktorym wszystkie pozostale ikonki mamy
-pole_nr_1.place(relwidth = 1, relheight = 1)
+pole_nr_1.place(relwidth = 1, relheight = 1)  #relwidth - wstawiam wartosć dla szerokości (ustawiam ja) , relhight - wstawiam wartosć dla wysokości (ustawiam ja)
+
+"""Tworzę ramki do wizualnego przedsawienia monet, ikon w automacie. """
 
 #--------------------- RAMKI ------------------------------------------
-ramka_nr_1 = Frame(window, width = 500, height = 500, cursor = "dot", background = "white")
-ramka_nr_1.place(relx = 0.05, rely = 0.01, relwidth = 0.5, relheight = 0.3)
-ramka_nr_2 = Frame(window, width = 500, height = 500, cursor = "dot", background = "black")
+ramka_nr_1 = Frame(window, width = 500, height = 500, cursor = "dot", background = "white") #window - okno, width, height - rozmiar ogólny, cursor = "dot" - ramka w ksztalcie kwadratu, background - ustawia kolor tła
+ramka_nr_1.place(relx = 0.05, rely = 0.01, relwidth = 0.5, relheight = 0.3) #relx - polożenie poziome, rely - połozenie pionowe, relwidth - rozmiar szerokosć, relheight - rozmiar wysokosc
+ramka_nr_2 = Frame(window, width = 500, height = 500, cursor = "circle", background = "black") #window - okno, width, height - rozmiar ogólny, cursor = "circle" - ramka w ksztalcie kola, background - ustawia kolor tła
 ramka_nr_2.place(relx = 0.6, rely = 0, relwidth = 0.4, relheight = 1)
 ramka_nr_3 = Frame(window, width = 500, height = 500, cursor = "dot", background = "white")
 ramka_nr_3.place(relx = 0.05, rely = 0.33, relwidth = 0.50, relheight = 0.1)
@@ -305,10 +319,12 @@ ramka_nr_6.place(relx = 0.05, rely = 0.645, relwidth = 0.5, relheight = 0.02)
 ramka_nr_7 = Frame(window, width = 500, height = 500, cursor = "dot", background = "pink")
 ramka_nr_7.place(relx = 0.05, rely = 0.8665, relwidth = 0.5, relheight = 0.04)
 
+"""Tworzę kolejne pola - pierwsze do informacji ogólnej co nalezy zrobic by rozpocząc transakcje, drugie do asortymentu. """
+
 #--------------------- KOLEJNE POLE AUTOMATU 2 --------------------------------------
-pole_nr_2 = Label(ramka_nr_1, bg = "black", foreground = "white", font = ("Arial",21, "italic"), textvariable = string, anchor = CENTER)
-pole_nr_2.place(relx = 0, rely = 0, relwidth = 1, relheight = 1)
-pole_nr_3 = Label(ramka_nr_3, text = 'Napoje', font = ("Arial",23, "italic"), foreground="red", anchor = CENTER)
+pole_nr_2 = Label(ramka_nr_1, background = "black", foreground = "white", font = ("Arial",21, "italic"), textvariable = string, anchor = CENTER)
+pole_nr_2.place(relx = 0, rely = 0, relwidth = 1, relheight = 1)  #relx - polożenie poziome, rely - połozenie pionowe, relwidth - rozmiar szerokosci, relheight - rozmiar wysokosci
+pole_nr_3 = Label(ramka_nr_3, text = 'Napoje', font = ("Arial",23, "italic"), foreground="red", anchor = CENTER) #anchor - położenie tekstu tu akurat wysrodkowane 
 pole_nr_3.place(relwidth = 1, relheight = 1)
 
 #--------------------- NUMERKI DANEGO ASORTYMENTU--------------------------------------
