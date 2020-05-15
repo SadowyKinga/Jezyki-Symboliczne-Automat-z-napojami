@@ -168,7 +168,7 @@ class Tkinter(object):
         self.roznica = str(round(eval(self.roznica), 3))
         return self.roznica
 
-"""Obsluga przyciskow funkcyjnych:
+    """Obsluga przyciskow funkcyjnych:
     ZMIENNE:
     *przycisk_tak - inaczej mówiąc przycisk zielony tzw. 'tik', 'fajka', informuje klienta, o cenie wybranego produktu, oraz podaje klarowny komunikat o wrzucenie pieniędzy za towar, jeśli produkt jest nie dostępny prosi by klient sprawdził dostępnosc danego produktu bądź tez czy wybral poprawny numer z listy asortymentu,
     *przycisk_sprawdz - informuje klienta, gdy podal zly numer wybranego przez siebie produktu, następnie sprawdza dostepnosć produktu - informuje o braku lub dostępności produktu w asortymencie i podaje cene tego produktu,
@@ -334,15 +334,15 @@ pole_nr_5 = Label(ramka_nr_7, text = '  41.      42.        43.       44.       
 pole_nr_5.place(relwidth = 1.009, relheight = 0.8)
 
 #--------------------- PRZYCISKI --------------------------------------
-przycisk_1gr = Button(ramka_nr_2, text = "1grosz", command = lambda: tk.moneta(0.01), font = ("Arial", 50), image = jeden_grosz, background = "black", foreground = "white") 
-przycisk_2gr = Button(ramka_nr_2, text = "2grosze", command = lambda: tk.moneta(0.02), font = ("Arial", 50), image = dwa_grosze, background = "black", foreground = "white") 
-przycisk_5gr = Button(ramka_nr_2, text = "5groszy", command = lambda: tk.moneta(0.05), font = ("Arial", 50), image = piec_groszy, background = "black", foreground = "white") 
-przycisk_10gr = Button(ramka_nr_2, text = "10groszy", command = lambda: tk.moneta(0.1), font = ("Arial", 50), image = dziesiec_groszy, background = "black", foreground = "white") 
-przycisk_20gr = Button(ramka_nr_2, text = "20groszy", command = lambda: tk.moneta(0.2), font = ("Arial", 50), image = dwadziescia_groszy, background = "black", foreground = "white") 
-przycisk_50gr = Button(ramka_nr_2, text = "50groszy", command = lambda: tk.moneta(0.5), font = ("Arial", 50), image = piecdziesiat_groszy, background = "black", foreground = "white") 
-przycisk_1zl = Button(ramka_nr_2, text = "1zł", command = lambda: tk.moneta(1.0), font = ("Arial", 50), image = jeden_zl, background = "black", foreground = "white") 
-przycisk_2zl = Button(ramka_nr_2, text = "2zł", command = lambda: tk.moneta(2.0), font = ("Arial", 50), image = dwa_zl, background = "black", foreground = "white") 
-przycisk_5zl = Button(ramka_nr_2, text = "5zł", command = lambda: tk.moneta(5.0), font = ("Arial", 50), image = piec_zl, background = "black", foreground = "white") 
+przycisk_1gr = Button(ramka_nr_2, text = "1grosz", borderwidth = 0, command = lambda: tk.moneta(0.01), font = ("Arial", 50), image = jeden_grosz, activebackground = "black", background = "black") 
+przycisk_2gr = Button(ramka_nr_2, text = "2grosze", borderwidth = 0, command = lambda: tk.moneta(0.02), font = ("Arial", 50), image = dwa_grosze, activebackground = "black", background = "black") 
+przycisk_5gr = Button(ramka_nr_2, text = "5groszy", borderwidth = 0, command = lambda: tk.moneta(0.05), font = ("Arial", 50), image = piec_groszy, activebackground = "black", background = "black") 
+przycisk_10gr = Button(ramka_nr_2, text = "10groszy", borderwidth = 0, command = lambda: tk.moneta(0.1), font = ("Arial", 50), image = dziesiec_groszy, activebackground = "black", background = "black") 
+przycisk_20gr = Button(ramka_nr_2, text = "20groszy", borderwidth = 0, command = lambda: tk.moneta(0.2), font = ("Arial", 50), image = dwadziescia_groszy, activebackground = "black", background = "black") 
+przycisk_50gr = Button(ramka_nr_2, text = "50groszy", borderwidth = 0, command = lambda: tk.moneta(0.5), font = ("Arial", 50), image = piecdziesiat_groszy, activebackground = "black", background = "black") 
+przycisk_1zl = Button(ramka_nr_2, text = "1zł", borderwidth = 0, command = lambda: tk.moneta(1.0), font = ("Arial", 50), image = jeden_zl, activebackground = "black", background = "black") 
+przycisk_2zl = Button(ramka_nr_2, text = "2zł", borderwidth = 0, command = lambda: tk.moneta(2.0), font = ("Arial", 50), image = dwa_zl, activebackground = "black", background = "black") 
+przycisk_5zl = Button(ramka_nr_2, text = "5zł", borderwidth = 0, command = lambda: tk.moneta(5.0), font = ("Arial", 50), image = piec_zl, activebackground = "black", background = "black") 
 
 przycisk_tak = Button(ramka_nr_2, image = tak, background = "black", borderwidth = 0, command = tk.przycisk_tak)
 przycisk_nie = Button(ramka_nr_2, image = nie, background = "black", borderwidth = 0, command = tk.przycisk_do_czyszczenia)
