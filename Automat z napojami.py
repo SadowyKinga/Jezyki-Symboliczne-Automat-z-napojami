@@ -274,9 +274,9 @@ ramka_nr_7 = Frame(window, width = 500, height = 500, cursor = "dot", background
 ramka_nr_7.place(relx = 0.05, rely = 0.8665, relwidth = 0.5, relheight = 0.04)
 
 #--------------------- KOLEJNE POLE AUTOMATU 2 --------------------------------------
-pole_nr_2 = Label(ramka_nr_1, bg = "black", foreground = "white", font = ("Arial",23, "italic"), textvariable = string, anchor = CENTER)
+pole_nr_2 = Label(ramka_nr_1, bg = "black", foreground = "white", font = ("Arial",21, "italic"), textvariable = string, anchor = CENTER)
 pole_nr_2.place(relx = 0, rely = 0, relwidth = 1, relheight = 1)
-pole_nr_3 = Label(ramka_nr_3, text = 'Napoje', font = ("Arial",23, "italic"), foreground="red")
+pole_nr_3 = Label(ramka_nr_3, text = 'Napoje', font = ("Arial",23, "italic"), foreground="red", anchor = CENTER)
 pole_nr_3.place(relwidth = 1, relheight = 1)
 
 #--------------------- NUMERKI DANEGO ASORTYMENTU--------------------------------------
@@ -382,3 +382,4 @@ zdjecie_18.place(relx = 0.615, rely = 0.45, relwidth = 0.08, relheight = 0.52)
 zdjecie_19.place(relx = 0.715, rely = 0.45, relwidth = 0.08, relheight = 0.52)
 zdjecie_20.place(relx = 0.81, rely = 0.45, relwidth = 0.08, relheight = 0.52)
 zdjecie_21.place(relx = 0.91, rely = 0.45, relwidth = 0.08, relheight = 0.52)
+window.mainloop()
