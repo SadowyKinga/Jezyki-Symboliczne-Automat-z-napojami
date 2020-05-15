@@ -1,6 +1,13 @@
 import random as r
 from tkinter import *
 
+"""Klasa Monet służy do reprezentacji tzw. skarbca na pieniądze.
+    ZMIENNE:
+    *nominaly - to zmienna odpowiedzialna za przechowywanie monet,
+    METODY:
+    *dodaj_monety - dodaje monety do skarbca na pieniądze oraz sprawdza dostępność danego nominału 
+    *bierz_monety - wydaje monety ze skarbca na pieniądze oraz sprawdza dostępność danego nominału """
+
 #--------------------- KLASA MONET ------------------------------------------
 class Monety(object):
     dostepnosc_monety = []
@@ -21,6 +28,13 @@ class Monety(object):
 
     def bierz_monety(self, nominal):
         self.dostepnosc_monety.remove(nominal)
+        
+"""Klasa Produktów służy do reprezentacji asortymentu.
+    ZMIENNE:
+    *asortyment - to zmienna odpowiedzialna za przechowywanie produktów dostępnych w automacie. Są tu przechowywane takie informacje jak: numer produktu, cena produktu oraz ilość danego produktu w calym asortymencie.
+    METODY:
+    *podaj_cene - zwraca cene produktu o danym numerze,
+    *podaj_ilosc - zwraca ilosc danego produktu o danym numerze."""
 
 #--------------------- KLASA PRODUKTOW ------------------------------------------
 class Produkty(object):
@@ -40,8 +54,13 @@ class Produkty(object):
                 return self.asortyment[x][2]
     print("\nAsortyment w automacie to:\n")
     print(asortyment)
+"""Klasa do obslugi automatu służy do obslugi maszyny.
+    METODY:
+    *sprawdz - sprawdza ilosc danego asortymentu,
+    *usun_asortyment - służy do usunięcia zakupionego towaru z asortymentu,
+    *reszta - wydaje reszte za zakupiony towar, wyciąga monety ze skarbca na pieniądze lub informuje klienta by wrzucił odliczoną kwote, gdy nie jest w stanie wydać reszty. """
     
-    #--------------------- KLASA DO OBSLUGI AUTOMATU ------------------------------------------
+#--------------------- KLASA DO OBSLUGI AUTOMATU ------------------------------------------
 class Obsluga_automatu(Produkty, Monety):
 
     def __init__(self, numer):
@@ -93,7 +112,13 @@ class Obsluga_automatu(Produkty, Monety):
             print(self.dostepnosc_monety)
             wypisz = wypisz + "\n Reszta =  " + str(round(sum(pomocnicza), 3)) + " zł"
             return wypisz, j
-        
+
+"""Klasy wyjatkow slużą do opisów błedów, nie kończa programu
+    KLASY:
+    *BladNumeruLubBrakProduktu - informuje klienta, iż najprawdopodobniej podał zly numer produktu, lub produkt został wyczerpany, ,
+    *BlednyNumer - informuje klienta, iż podał niepoprawny numer produktu,
+    *ProduktWyprzedany - informuje klienta, iz dany produkt został wyprzedany."""
+
 #----------------------- WYJATKI ---------------------------------------------
 class BladNumeruLubBrakProduktu(Exception):
     pass
@@ -135,7 +160,14 @@ class Tkinter(object):
         self.roznica = self.wrzucone + "-" + self.cena
         self.roznica = str(round(eval(self.roznica), 3))
         return self.roznica
-    
+
+"""Obsluga przyciskow funkcyjnych:
+    ZMIENNE:
+    *przycisk_tak - inaczej mówiąc przycisk zielony tzw. 'tik', 'fajka', informuje klienta, o cenie wybranego produktu, oraz podaje klarowny komunikat o wrzucenie pieniędzy za towar, jeśli produkt jest nie dostępny prosi by klient sprawdził dostępnosc danego produktu bądź tez czy wybral poprawny numer z listy asortymentu,
+    *przycisk_sprawdz - informuje klienta, gdy podal zly numer wybranego przez siebie produktu, następnie sprawdza dostepnosć produktu - informuje o braku lub dostępności produktu w asortymencie i podaje cene tego produktu,
+    *przycisk_do_czyszczenia - inaczej mówiąc przycisk czerwony X, służy do tzw. resetowania programu od początku, tzn. jeśli klient wybrał produkt i wplacil za niego cześć pieniędzy badz też calość, to i tak w dowolnej chwili moze nacisnąć ten przycisk i zanulować transakcje, wtedy automat odda mu wrzucone pieniądze i powróci do stanu wyjściowego,
+    *przycisk_do_zatwietdzania - niebieski przycisk ze słowem 'ZATWIERDZ', informuje klienta o tym ile zostalo mu jeszcze do zaplaty, oraz informuje o wydaniu produktu za który klient zaplacił"""
+
 #--------------------- OBSLUGA PRZYCISKOW FUNKCYJNYCH ------------------------------------------
     def przycisk_tak(self):
         self.numer = eval(self.wypisz)
