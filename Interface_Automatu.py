@@ -310,4 +310,6 @@ zdjecie_18.place(relx = 0.615, rely = 0.45, relwidth = 0.08, relheight = 0.52)
 zdjecie_19.place(relx = 0.715, rely = 0.45, relwidth = 0.08, relheight = 0.52)
 zdjecie_20.place(relx = 0.81, rely = 0.45, relwidth = 0.08, relheight = 0.52)
 zdjecie_21.place(relx = 0.91, rely = 0.45, relwidth = 0.08, relheight = 0.52)
-window.mainloop()
+
+if __name__ == '__main__': #dopisanie linijki kodu do blokowania wyswietlania okna automatu podczas odpalania testow jednostkowych
+    window.mainloop()
