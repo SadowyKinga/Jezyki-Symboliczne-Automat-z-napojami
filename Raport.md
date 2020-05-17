@@ -30,7 +30,7 @@ Budowa
 
 Moja realizacja 
 ----------------------------------------------------------------------------------------------------------
-Myślę, ze zrealizowałam wszystkie założenia dotyczące projektu. Automat pozwala na wybranie kodu, zapłatę za niego, zarówno kwotą odliczona jaki z możliwością wydania reszty gotówki. Gdy nieprawidłowo wpiszemy kod produktu na ekranie pokaże się nam informacja o błędnym numerze, natomiast gdy dany produkt już został wyczerpany dostaniemy informacje o braku dostępności towaru. Jeśli już zdecydujemy się na dany napój oraz wrzucimy pieniądze, lecz zdecydujemy na zmianę wybranego napoju należy nacisnąć czerwony przycisk X, który pozwala na przerwanie transakcji i oddanie nam wrzuconej już kwoty. Gdy wrzucimy za mało monet dostaniemy komunikat o tym, ile pozostało nam do zapłaty za dany towar . Testy, które powinny zostać przeprowadzone są udokumentowane w pliku Testy – jeśli któryś z testów by nie został spełniony widniało by przy nim słowo ERROR – oznaczające błąd, bądź tez FAIL – oznaczające przerwanie wykonywania testów, zakończone niepowodzeniem. W moim projekcie przy każdym z testów widnieje napis ok – który, oznacza iż  zarówno testy są przeprowadzone prawidłowo jak i kod działa poprawnie. Link do testów: [Tutaj link, do testów](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/master/Testy.py)
+Myślę, ze zrealizowałam wszystkie założenia dotyczące projektu. Automat pozwala na wybranie kodu, zapłatę za niego, zarówno kwotą odliczona jaki z możliwością wydania reszty gotówki. Gdy nieprawidłowo wpiszemy kod produktu na ekranie pokaże się nam informacja o błędnym numerze, natomiast gdy dany produkt już został wyczerpany dostaniemy informacje o braku dostępności towaru. Jeśli już zdecydujemy się na dany napój oraz wrzucimy pieniądze, lecz zdecydujemy na zmianę wybranego napoju należy nacisnąć czerwony przycisk X, który pozwala na przerwanie transakcji i oddanie nam wrzuconej już kwoty. Gdy wrzucimy za mało monet dostaniemy komunikat o tym, ile pozostało nam do zapłaty za dany towar . Testy, które powinny zostać przeprowadzone są udokumentowane w pliku Testy – jeśli któryś z testów by nie został spełniony widniało by przy nim słowo ERROR – oznaczające błąd, bądź tez FAIL – oznaczające przerwanie wykonywania testów, zakończone niepowodzeniem. W moim projekcie przy każdym z testów widnieje napis ok – który, oznacza iż  zarówno testy są przeprowadzone prawidłowo jak i kod działa poprawnie. Link do testów: [Tutaj link, do testów jednostkowych](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/master/Testy.py)
 
 Dodane elementy specjalne 
 ----------------------------------------------------------------------------------------------------------
@@ -43,13 +43,21 @@ Uważam, iż nie miałam większych problemów z realizacją tego projektu. Jedy
 
 Linki do wymaganych w projekcie konstrukcji
 ----------------------------------------------------------------------------------------------------------
-a.	Lambda:
-•	https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/9607c7380520fbf3d227f48afffa1df6061dbac0/Interface_Automatu.py#L216
-•	
-b.	Klasy:
-
-c.	Wyjątki:
-
-d.	Moduły:
-
-
+	a. Lambda:
+		•[Obsługa przycisków do wrzucania monet](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/9607c7380520fbf3d227f48afffa1df6061dbac0/Interface_Automatu.py#L216)
+		•[Obsługa przycisków do wyboru numeru produktu](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/9607c7380520fbf3d227f48afffa1df6061dbac0/Interface_Automatu.py#L231)
+		•[]()
+		
+	b. Klasy:
+		•[Klasa odpowiedzialna za interfejs użytkownika](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/9607c7380520fbf3d227f48afffa1df6061dbac0/Interface_Automatu.py#L12)
+		•[Klasa Monety](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/668ee6f867836443564de900ba5575825f714c38/Automat%20z%20napojami.py#L12)
+		•[Klasa Produkty](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/668ee6f867836443564de900ba5575825f714c38/Automat%20z%20napojami.py#L40)
+		•[Klasa realizująca funkcjonalność programu - Obsluga_Automatu](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/668ee6f867836443564de900ba5575825f714c38/Automat%20z%20napojami.py#L65)
+		
+	c. Wyjątki:
+		•[Wyjatki - blędny numer, produkt wyprzedany, blędny numer lub produkt wyprzedany](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/master/Wyjatki.py)
+		
+	d. Moduły:
+		•[Import modułu System_Automaty, Wyjątki do pliku Interface_Automatu.py](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/668ee6f867836443564de900ba5575825f714c38/Interface_Automatu.py#L2)
+		•[Import modułu System_Automatu, Interface_Automatu, Wyjatki do pliku Testy.py](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/668ee6f867836443564de900ba5575825f714c38/Testy.py#L2)
+		•[Import modułu Wyjatki do pliku System_Automatu.py](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/668ee6f867836443564de900ba5575825f714c38/System_Automatu.py#L3)
