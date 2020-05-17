@@ -43,21 +43,21 @@ Uważam, iż nie miałam większych problemów z realizacją tego projektu. Jedy
 
 Linki do wymaganych w projekcie konstrukcji
 ----------------------------------------------------------------------------------------------------------
-	a. Lambda:
-		•[Obsługa przycisków do wrzucania monet](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/9607c7380520fbf3d227f48afffa1df6061dbac0/Interface_Automatu.py#L216)
-		•[Obsługa przycisków do wyboru numeru produktu](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/9607c7380520fbf3d227f48afffa1df6061dbac0/Interface_Automatu.py#L231)
-		•[]()
+a.Lambda - wyrażenia:
+	•[Obsługa przycisków do wrzucania monet](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/9607c7380520fbf3d227f48afffa1df6061dbac0/Interface_Automatu.py#L216)
+	•[Obsługa przycisków do wyboru numeru produktu](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/9607c7380520fbf3d227f48afffa1df6061dbac0/Interface_Automatu.py#L231)
+	•[]()
 		
-	b. Klasy:
-		•[Klasa odpowiedzialna za interfejs użytkownika](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/9607c7380520fbf3d227f48afffa1df6061dbac0/Interface_Automatu.py#L12)
-		•[Klasa Monety](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/668ee6f867836443564de900ba5575825f714c38/Automat%20z%20napojami.py#L12)
-		•[Klasa Produkty](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/668ee6f867836443564de900ba5575825f714c38/Automat%20z%20napojami.py#L40)
-		•[Klasa realizująca funkcjonalność programu - Obsluga_Automatu](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/668ee6f867836443564de900ba5575825f714c38/Automat%20z%20napojami.py#L65)
+b. Klasy:
+	•[Klasa odpowiedzialna za interfejs użytkownika](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/9607c7380520fbf3d227f48afffa1df6061dbac0/Interface_Automatu.py#L12)
+	•[Klasa Monety](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/668ee6f867836443564de900ba5575825f714c38/Automat%20z%20napojami.py#L12)
+	•[Klasa Produkty](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/668ee6f867836443564de900ba5575825f714c38/Automat%20z%20napojami.py#L40)
+	•[Klasa realizująca funkcjonalność programu - Obsluga_Automatu](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/668ee6f867836443564de900ba5575825f714c38/Automat%20z%20napojami.py#L65)
 		
-	c. Wyjątki:
-		•[Wyjatki - blędny numer, produkt wyprzedany, blędny numer lub produkt wyprzedany](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/master/Wyjatki.py)
+c. Wyjątki:
+	•[Wyjatki - blędny numer, produkt wyprzedany, blędny numer lub produkt wyprzedany](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/master/Wyjatki.py)
 		
-	d. Moduły:
-		•[Import modułu System_Automaty, Wyjątki do pliku Interface_Automatu.py](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/668ee6f867836443564de900ba5575825f714c38/Interface_Automatu.py#L2)
-		•[Import modułu System_Automatu, Interface_Automatu, Wyjatki do pliku Testy.py](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/668ee6f867836443564de900ba5575825f714c38/Testy.py#L2)
-		•[Import modułu Wyjatki do pliku System_Automatu.py](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/668ee6f867836443564de900ba5575825f714c38/System_Automatu.py#L3)
+d. Moduły:
+	•[Import modułu System_Automaty, Wyjątki do pliku Interface_Automatu.py](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/668ee6f867836443564de900ba5575825f714c38/Interface_Automatu.py#L2)
+	•[Import modułu System_Automatu, Interface_Automatu, Wyjatki do pliku Testy.py](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/668ee6f867836443564de900ba5575825f714c38/Testy.py#L2)
+	•[Import modułu Wyjatki do pliku System_Automatu.py](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/668ee6f867836443564de900ba5575825f714c38/System_Automatu.py#L3)
