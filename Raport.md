@@ -10,23 +10,36 @@ Pracowałam zarówno w środowisku PyCharm jak również w IDLE (Python 3.8 32-b
 Budowa 
 ----------------------------------------------------------------------------------------------------------
 Na początku projekt pisałam jako jeden plik, nie dzieląc go na moduły, gdyż było mi w ten sposób wygodniej. Jednak na końcu stwierdziłam, że należy go podzielić na kilka modułów, by spełniał kryteria dotyczące projektu.
-   Projekt podzieliłam następująco: 
-     *na główny plik o nazwie Interface_Automatu;
-     *na plik Wyjatki;
-     *oraz na moduł System_Automatu;
-     *także osobno zrobiłam testy jednostkowe, by pokazać, iż program spełnia wymagania zawarte w opisie projektu.
-   W pliku Interface_Automatu, zajmuje się logika interfacu tego automatu. Posiada on metody potrzebne do przeprowadzonych testów, wizualnie przedstawia automat, oraz odpowiada za główne odpalanie programu.
-   W pliku Wyjątki są zainicjowane wyjątki, których używam następnie w interfejsie automatu.
-   Natomiast w module System_Automatu, zajęłam się główna logiką Automatu. Mam tu na myśli, iż dzięki klasie Monety mogę przechowywać monety - nominały. Metody, które w niej zawarłam pozwalają na dodawanie monety do tzw. "skarbca monet" oraz na zwrot reszty gotówki za wybrany i opłacony już produkt. Dzięki klasie Produkty przechowuję numery danych produktów wraz z cenami i ich ilością. Metody, które w niej zawarłam pozwalają na sprawdzenie ceny, oraz ilości dostępności produktu. Odwołując się do klasy Obsluga_Automatu mogę sprawdzić dostępność danego produktu, jak również po zakupie wybranego usunąć go z listy asortymentu oraz obliczyć resztę potrzebną, bądź też nie potrzebną do wydania za zapłacony napój. Tutaj również dodaje możliwość by automat sam generował czy ma możliwość wydania reszty za opłacony napój, czy tez zwróci klarowny komunikat „Proszę wrzucić tylko odliczoną kwotę!” – związane jest to z wyczerpaniem już monet do wydania za zakup towaru. 
-   W testach jednostkowych pozwalam sobie na:
-    *sprawdzanie ceny produktu, który wybraliśmy, 
-    *sprawdzenie poprawność działania kodu, gdy wrzucimy kwotę odliczona do automatu - brak reszty, 
-    *sprawdzenie poprawność działania kodu, gdy wrzucimy kwotę większa od spodziewanej - wydawana reszta,
-    *test dzięki któremu wykupimy cały dany produkt z asortymentu – informacja o braku produktu w automacie,
-    *test sprawdzający ceny towarów o nieprawidłowym numerze – informacja o błędzie, 
-    *test pozwalający na wrzucenie kilku monet a następnie przerwanie transakcji – zwrot gotówki, 
-    *test, w którym pokażemy możliwość wrzucenia za małej kwoty, wybraniu produktu, dorzucenia reszty odliczonej kwoty oraz ponownego wybrania numeru – brak reszty, 
-    *test, dzięki któremu pokażemy, iż za dany produkt możemy zapłacić moneta 1-groszową - przykładowo 100 monet po 1gr. 
+ Projekt podzieliłam następująco: 
+   
+   *na główny plik o nazwie Interface_Automatu;
+     
+   *na plik Wyjatki;
+     
+   *oraz na moduł System_Automatu;
+     
+   *także osobno zrobiłam testy jednostkowe, by pokazać, iż program spełnia wymagania zawarte w opisie projektu.
+     
+ W pliku Interface_Automatu, zajmuje się logika interfacu tego automatu. Posiada on metody potrzebne do przeprowadzonych testów, wizualnie przedstawia automat, oraz odpowiada za główne odpalanie programu.
+ W pliku Wyjątki są zainicjowane wyjątki, których używam następnie w interfejsie automatu.
+ Natomiast w module System_Automatu, zajęłam się główna logiką Automatu. Mam tu na myśli, iż dzięki klasie Monety mogę przechowywać monety - nominały. Metody, które w niej zawarłam pozwalają na dodawanie monety do tzw. "skarbca monet" oraz na zwrot reszty gotówki za wybrany i opłacony już produkt. Dzięki klasie Produkty przechowuję numery danych produktów wraz z cenami i ich ilością. Metody, które w niej zawarłam pozwalają na sprawdzenie ceny, oraz ilości dostępności produktu. Odwołując się do klasy Obsluga_Automatu mogę sprawdzić dostępność danego produktu, jak również po zakupie wybranego usunąć go z listy asortymentu oraz obliczyć resztę potrzebną, bądź też nie potrzebną do wydania za zapłacony napój. Tutaj również dodaje możliwość by automat sam generował czy ma możliwość wydania reszty za opłacony napój, czy tez zwróci klarowny komunikat „Proszę wrzucić tylko odliczoną kwotę!” – związane jest to z wyczerpaniem już monet do wydania za zakup towaru. 
+  W testach jednostkowych pozwalam sobie na:
+   
+   *sprawdzanie ceny produktu, który wybraliśmy, 
+    
+   *sprawdzenie poprawność działania kodu, gdy wrzucimy kwotę odliczona do automatu - brak reszty, 
+    
+   *sprawdzenie poprawność działania kodu, gdy wrzucimy kwotę większa od spodziewanej - wydawana reszta,
+    
+   *test dzięki któremu wykupimy cały dany produkt z asortymentu – informacja o braku produktu w automacie,
+    
+   *test sprawdzający ceny towarów o nieprawidłowym numerze – informacja o błędzie, 
+    
+   *test pozwalający na wrzucenie kilku monet a następnie przerwanie transakcji – zwrot gotówki, 
+    
+   *test, w którym pokażemy możliwość wrzucenia za małej kwoty, wybraniu produktu, dorzucenia reszty odliczonej kwoty oraz ponownego wybrania numeru – brak reszty, 
+    
+   *test, dzięki któremu pokażemy, iż za dany produkt możemy zapłacić moneta 1-groszową - przykładowo 100 monet po 1gr. 
 
 Moja realizacja 
 ----------------------------------------------------------------------------------------------------------
