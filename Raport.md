@@ -4,21 +4,21 @@ Raport
 
 Przygotowanie do projektu
 ------------------------------------------------------------------------------------------------------
-	Projekt z Języków Symbolicznych -  automat z napojami, rok: 2, Informatyka, Politechnika Krakowska.
-	Pracowałam zarówno w środowisku PyCharm jak również w IDLE (Python 3.8 32-bit). Do graficznej prezentacji automatu użyłam biblioteki Tkinter. 
+Projekt z Języków Symbolicznych -  automat z napojami, rok: 2, Informatyka, Politechnika Krakowska.
+Pracowałam zarówno w środowisku PyCharm jak również w IDLE (Python 3.8 32-bit). Do graficznej prezentacji automatu użyłam biblioteki Tkinter. 
          
 Budowa 
 ----------------------------------------------------------------------------------------------------------
-    Na początku projekt pisałam jako jeden plik, nie dzieląc go na moduły, gdyż było mi w ten sposób wygodniej. Jednak na końcu stwierdziłam, że należy go podzielić na kilka modułów, by spełniał kryteria dotyczące projektu.
-	Projekt podzieliłam następująco: 
-		*na główny plik o nazwie Interface_Automatu;
-		*na plik Wyjatki;
-		*oraz na moduł System_Automatu;
-		*także osobno zrobiłam testy jednostkowe, by pokazać, iż program spełnia wymagania zawarte w opisie projektu.
-	W pliku Interface_Automatu, zajmuje się logika interfacu tego automatu. Posiada on metody potrzebne do przeprowadzonych testów, wizualnie przedstawia automat, oraz odpowiada za główne odpalanie programu.
-	W pliku Wyjątki są zainicjowane wyjątki, których używam następnie w interfejsie automatu.
-	Natomiast w module System_Automatu, zajęłam się główna logiką Automatu. Mam tu na myśli, iż dzięki klasie Monety mogę przechowywać monety - nominały. Metody, które w niej zawarłam pozwalają na dodawanie monety do tzw. "skarbca monet" oraz na zwrot reszty gotówki za wybrany i opłacony już produkt. Dzięki klasie Produkty przechowuję numery danych produktów wraz z cenami i ich ilością. Metody, które w niej zawarłam pozwalają na sprawdzenie ceny, oraz ilości dostępności produktu. Odwołując się do klasy Obsluga_Automatu mogę sprawdzić dostępność danego produktu, jak również po zakupie wybranego usunąć go z listy asortymentu oraz obliczyć resztę potrzebną, bądź też nie potrzebną do wydania za zapłacony napój. Tutaj również dodaje możliwość by automat sam generował czy ma możliwość wydania reszty za opłacony napój, czy tez zwróci klarowny komunikat „Proszę wrzucić tylko odliczoną kwotę!” – związane jest to z wyczerpaniem już monet do wydania za zakup towaru. 
-	W testach jednostkowych pozwalam sobie na:
+Na początku projekt pisałam jako jeden plik, nie dzieląc go na moduły, gdyż było mi w ten sposób wygodniej. Jednak na końcu stwierdziłam, że należy go podzielić na kilka modułów, by spełniał kryteria dotyczące projektu.
+   Projekt podzieliłam następująco: 
+     *na główny plik o nazwie Interface_Automatu;
+     *na plik Wyjatki;
+     *oraz na moduł System_Automatu;
+     *także osobno zrobiłam testy jednostkowe, by pokazać, iż program spełnia wymagania zawarte w opisie projektu.
+   W pliku Interface_Automatu, zajmuje się logika interfacu tego automatu. Posiada on metody potrzebne do przeprowadzonych testów, wizualnie przedstawia automat, oraz odpowiada za główne odpalanie programu.
+   W pliku Wyjątki są zainicjowane wyjątki, których używam następnie w interfejsie automatu.
+   Natomiast w module System_Automatu, zajęłam się główna logiką Automatu. Mam tu na myśli, iż dzięki klasie Monety mogę przechowywać monety - nominały. Metody, które w niej zawarłam pozwalają na dodawanie monety do tzw. "skarbca monet" oraz na zwrot reszty gotówki za wybrany i opłacony już produkt. Dzięki klasie Produkty przechowuję numery danych produktów wraz z cenami i ich ilością. Metody, które w niej zawarłam pozwalają na sprawdzenie ceny, oraz ilości dostępności produktu. Odwołując się do klasy Obsluga_Automatu mogę sprawdzić dostępność danego produktu, jak również po zakupie wybranego usunąć go z listy asortymentu oraz obliczyć resztę potrzebną, bądź też nie potrzebną do wydania za zapłacony napój. Tutaj również dodaje możliwość by automat sam generował czy ma możliwość wydania reszty za opłacony napój, czy tez zwróci klarowny komunikat „Proszę wrzucić tylko odliczoną kwotę!” – związane jest to z wyczerpaniem już monet do wydania za zakup towaru. 
+   W testach jednostkowych pozwalam sobie na:
     *sprawdzanie ceny produktu, który wybraliśmy, 
     *sprawdzenie poprawność działania kodu, gdy wrzucimy kwotę odliczona do automatu - brak reszty, 
     *sprawdzenie poprawność działania kodu, gdy wrzucimy kwotę większa od spodziewanej - wydawana reszta,
@@ -34,6 +34,7 @@ Myślę, ze zrealizowałam wszystkie założenia dotyczące projektu. Automat po
 
 Dodane elementy specjalne 
 ----------------------------------------------------------------------------------------------------------
+Elementami specjalnymi użytymi w programie są fotografie do wizualnego przedstawienia prawdziwego automatu, dzięki którym doskonale wiemy i widzimy co zamawiamy i czego należy sie spodziewać - firma danego produktu, smak, pojemność
 
 Napotkane problemy
 ----------------------------------------------------------------------------------------------------------
@@ -44,14 +45,15 @@ Uważam, iż nie miałam większych problemów z realizacją tego projektu. Jedy
 Linki do wymaganych w projekcie konstrukcji
 ----------------------------------------------------------------------------------------------------------
 
-a.Lambda - wyrażenia:
+a. Lambda - wyrażenia:
+
   •[Obsługa przycisków do wrzucania monet](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/9607c7380520fbf3d227f48afffa1df6061dbac0/Interface_Automatu.py#L216)
   
   •[Obsługa przycisków do wyboru numeru produktu](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/9607c7380520fbf3d227f48afffa1df6061dbac0/Interface_Automatu.py#L231)
   
-  •[]()
-		
+	
 b. Klasy:
+
   •[Klasa odpowiedzialna za interfejs użytkownika](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/9607c7380520fbf3d227f48afffa1df6061dbac0/Interface_Automatu.py#L12)
   
   •[Klasa Monety](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/668ee6f867836443564de900ba5575825f714c38/Automat%20z%20napojami.py#L12)
@@ -61,9 +63,11 @@ b. Klasy:
   •[Klasa realizująca funkcjonalność programu - Obsluga_Automatu](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/668ee6f867836443564de900ba5575825f714c38/Automat%20z%20napojami.py#L65)
 		
 c. Wyjątki:
-  •[Wyjatki - blędny numer, produkt wyprzedany, blędny numer lub produkt wyprzedany](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/master/Wyjatki.py)
+
+  •[Wyjątki - błędny numer, produkt wyprzedany, błędny numer lub produkt wyprzedany](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/master/Wyjatki.py)
 		
 d. Moduły:
+
   •[Import modułu System_Automaty, Wyjątki do pliku Interface_Automatu.py](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/668ee6f867836443564de900ba5575825f714c38/Interface_Automatu.py#L2)
   
   •[Import modułu System_Automatu, Interface_Automatu, Wyjatki do pliku Testy.py](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/668ee6f867836443564de900ba5575825f714c38/Testy.py#L2)
