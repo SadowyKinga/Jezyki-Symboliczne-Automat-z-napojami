@@ -4,7 +4,7 @@ import Wyjatki as w
 
 """Klasa Monet służy do reprezentacji tzw. skarbca na pieniądze.
     ZMIENNE:
-    *nominaly - to zmienna odpowiedzialna za przechowywanie monet,
+    *NOMINALY - to zmienna odpowiedzialna za przechowywanie monet,
     METODY:
     *dodaj_monety - dodaje monety do skarbca na pieniądze oraz sprawdza dostępność danego nominału 
     *bierz_monety - wydaje monety ze skarbca na pieniądze oraz sprawdza dostępność danego nominału """
@@ -12,9 +12,9 @@ import Wyjatki as w
 #--------------------- KLASA MONET ------------------------------------------
 class Monety(object):
     dostepnosc_monety = []
-    nominaly = [0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1.0, 2.0, 5.0]
+    NOMINALY = [0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1.0, 2.0, 5.0]
     for i in range(30):
-        x = r.choice(nominaly)
+        x = r.choice(NOMINALY)
         dostepnosc_monety.append(x)
     dostepnosc_monety.sort(reverse = True)
     print("\nMonety dostępne w automacie to:\n")
