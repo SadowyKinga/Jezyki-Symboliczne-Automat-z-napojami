@@ -2,15 +2,16 @@ import random as r
 from tkinter import *
 import Wyjatki as w
 
-"""Klasa Monet służy do reprezentacji tzw. skarbca na pieniądze.
+#--------------------- KLASA MONET ------------------------------------------
+class Monety(object):
+    
+    """Klasa Monet służy do reprezentacji tzw. skarbca na pieniądze.
     ZMIENNE:
     *NOMINALY - to zmienna odpowiedzialna za przechowywanie monet,
     METODY:
     *dodaj_monety - dodaje monety do skarbca na pieniądze oraz sprawdza dostępność danego nominału 
     *bierz_monety - wydaje monety ze skarbca na pieniądze oraz sprawdza dostępność danego nominału """
-
-#--------------------- KLASA MONET ------------------------------------------
-class Monety(object):
+    
     dostepnosc_monety = []
     NOMINALY = [0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1.0, 2.0, 5.0]
     for i in range(30):
@@ -30,15 +31,16 @@ class Monety(object):
     def bierz_monety(self, nominal):
         self.dostepnosc_monety.remove(nominal)
         
-"""Klasa Produktów służy do reprezentacji asortymentu.
+#--------------------- KLASA PRODUKTOW ------------------------------------------
+class Produkty(object):
+    
+    """Klasa Produktów służy do reprezentacji asortymentu.
     ZMIENNE:
     *ASORTYMENT - to zmienna odpowiedzialna za przechowywanie produktów dostępnych w automacie. Są tu przechowywane takie informacje jak: numer produktu, cena produktu oraz ilość danego produktu w calym asortymencie.
     METODY:
     *podaj_cene - zwraca cene produktu o danym numerze,
     *podaj_ilosc - zwraca ilosc danego produktu o danym numerze."""
 
-#--------------------- KLASA PRODUKTOW ------------------------------------------
-class Produkty(object):
     ASORTYMENT = [[30, 4.51, 5], [31, 1.10, 5], [32, 4.35, 5], [33, 5.0, 5], [34, 0.55, 5],
                   [35, 5.20, 5], [36, 8.0, 5], [37, 6.20, 5], [38, 4.25, 5], [39, 5.10, 5],
                   [40, 2.60, 5], [41, 4.15, 5], [42, 7.50, 5], [43, 5.25, 5], [44, 1.60, 1],
@@ -56,15 +58,15 @@ class Produkty(object):
     print("\nAsortyment w automacie to:\n")
     print(ASORTYMENT)
     
-"""Klasa do obslugi automatu służy do obslugi maszyny.
+#--------------------- KLASA DO OBSLUGI AUTOMATU ------------------------------------------
+class ObslugaAutomatu(Produkty, Monety):
+    
+    """Klasa do obslugi automatu służy do obslugi maszyny.
     METODY:
     *sprawdz - sprawdza ilosc danego asortymentu,
     *usun_asortyment - służy do usunięcia zakupionego towaru z asortymentu,
     *reszta - wydaje reszte za zakupiony towar, wyciąga monety ze skarbca na pieniądze lub informuje klienta by wrzucił odliczoną kwote, gdy nie jest w stanie wydać reszty. """
     
-#--------------------- KLASA DO OBSLUGI AUTOMATU ------------------------------------------
-class ObslugaAutomatu(Produkty, Monety):
-
     def __init__(self, numer):
         self.numer = numer
 
