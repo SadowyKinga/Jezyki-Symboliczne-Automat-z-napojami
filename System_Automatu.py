@@ -32,29 +32,29 @@ class Monety(object):
         
 """Klasa Produktów służy do reprezentacji asortymentu.
     ZMIENNE:
-    *asortyment - to zmienna odpowiedzialna za przechowywanie produktów dostępnych w automacie. Są tu przechowywane takie informacje jak: numer produktu, cena produktu oraz ilość danego produktu w calym asortymencie.
+    *ASORTYMENT - to zmienna odpowiedzialna za przechowywanie produktów dostępnych w automacie. Są tu przechowywane takie informacje jak: numer produktu, cena produktu oraz ilość danego produktu w calym asortymencie.
     METODY:
     *podaj_cene - zwraca cene produktu o danym numerze,
     *podaj_ilosc - zwraca ilosc danego produktu o danym numerze."""
 
 #--------------------- KLASA PRODUKTOW ------------------------------------------
 class Produkty(object):
-    asortyment = [[30, 4.51, 5], [31, 1.10, 5], [32, 4.35, 5], [33, 5.0, 5], [34, 0.55, 5],
+    ASORTYMENT = [[30, 4.51, 5], [31, 1.10, 5], [32, 4.35, 5], [33, 5.0, 5], [34, 0.55, 5],
                   [35, 5.20, 5], [36, 8.0, 5], [37, 6.20, 5], [38, 4.25, 5], [39, 5.10, 5],
                   [40, 2.60, 5], [41, 4.15, 5], [42, 7.50, 5], [43, 5.25, 5], [44, 1.60, 1],
                   [45, 2.0, 5], [46, 5.52, 5], [47, 8.0, 5], [48, 1.00, 5], [49, 1.90, 5], [50, 1.05, 5]]
 
     def podaj_cene(self, numer): 
-        for x in range(len(self.asortyment)):
-            if self.asortyment[x][0] == numer:
-                return self.asortyment[x][1]
+        for x in range(len(self.ASORTYMENT)):
+            if self.ASORTYMENT[x][0] == numer:
+                return self.ASORTYMENT[x][1]
 
     def podaj_ilosc(self, numer):
-        for x in range(len(self.asortyment)):#len - pokazuje ilosc znakow w stringu
-            if self.asortyment[x][0] == numer:
-                return self.asortyment[x][2]
+        for x in range(len(self.ASORTYMENT)):#len - pokazuje ilosc znakow w stringu
+            if self.ASORTYMENT[x][0] == numer:
+                return self.ASORTYMENT[x][2]
     print("\nAsortyment w automacie to:\n")
-    print(asortyment)
+    print(ASORTYMENT)
     
 """Klasa do obslugi automatu służy do obslugi maszyny.
     METODY:
@@ -80,9 +80,9 @@ class Obsluga_automatu(Produkty, Monety):
         return daj
 
     def usun_asortyment(self):
-        for x in range(len(self.asortyment)):
-            if self.asortyment[x][0] == self.numer:
-                self.asortyment[x][2] = self.asortyment[x][2] - 1
+        for x in range(len(self.ASORTYMENT)):
+            if self.ASORTYMENT[x][0] == self.numer:
+                self.ASORTYMENT[x][2] = self.ASORTYMENT[x][2] - 1
         print("Napój zostal usuniety!")
         
     def reszta(self, roznica):
