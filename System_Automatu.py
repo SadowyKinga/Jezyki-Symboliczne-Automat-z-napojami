@@ -69,7 +69,7 @@ class ObslugaAutomatu(Produkty, Monety):
         self.numer = numer
 
     def sprawdz(self):
-        if not 30 <= numer <= 50:
+        if not 30 <= self.numer <= 50:
             daj = 0
         else:
             x = Produkty.podaj_ilosc(self, self.numer)
