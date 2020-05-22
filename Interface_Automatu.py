@@ -24,7 +24,7 @@ class Tkinter(object):
         cena = self.cena
         lista = self.lista
         roznica = self.roznica
-        self.d = s.Obsluga_automatu(self.numer)
+        self.d = s.ObslugaAutomatu(self.numer)
         self.g = s.Monety()
 
     def przycisk(self, num):
@@ -52,7 +52,7 @@ class Tkinter(object):
 #--------------------- OBSLUGA PRZYCISKOW FUNKCYJNYCH ------------------------------------------
     def przycisk_tak(self):
         self.numer = eval(self.wypisz)
-        self.d = s.Obsluga_automatu(self.numer)
+        self.d = s.ObslugaAutomatu(self.numer)
         if self.d.sprawdz() == 1:
             self.cena = str(self.d.podaj_cene(self.numer))
             self.wypisz = "Cena wybranego produktu to " + self.cena + " zł. \nWrzuć monety."
@@ -65,7 +65,7 @@ class Tkinter(object):
     
     def przycisk_sprawdz(self):
         self.numer = eval(self.wypisz)
-        self.d = s.Obsluga_automatu(self.numer)
+        self.d = s.ObslugaAutomatu(self.numer)
         if self.d.sprawdz() == 0:
             self.wypisz = "Podałeś zły numer produktu, \nkliknij czerwony przycisk i spróbuj jescze raz."
             string.set(self.wypisz)
