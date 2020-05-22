@@ -63,7 +63,7 @@ class Produkty(object):
     *reszta - wydaje reszte za zakupiony towar, wyciąga monety ze skarbca na pieniądze lub informuje klienta by wrzucił odliczoną kwote, gdy nie jest w stanie wydać reszty. """
     
 #--------------------- KLASA DO OBSLUGI AUTOMATU ------------------------------------------
-class Obsluga_automatu(Produkty, Monety):
+class ObslugaAutomatu(Produkty, Monety):
 
     def __init__(self, numer):
         self.numer = numer
