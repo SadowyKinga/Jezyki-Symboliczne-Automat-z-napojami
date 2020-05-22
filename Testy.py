@@ -2,6 +2,10 @@ import unittest
 import System_Automatu, Interface_Automatu, Wyjatki
 
 class MyTestCase(unittest.TestCase):
+
+    def setUp(self):
+        self.test_machine = Interface_Automatu.Tkinter()
+        
     print("\nTESTY\n")
     #Test nr.1 - Sprawdzanie ceny jednego towaru - oczekiwana informacja o cenie
     def test_nr_1_informacja_o_cenie(self):
