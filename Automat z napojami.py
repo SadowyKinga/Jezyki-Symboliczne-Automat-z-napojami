@@ -1,19 +1,20 @@
 import random as r
 from tkinter import *
 
-"""Klasa Monet służy do reprezentacji tzw. skarbca na pieniądze.
+#--------------------- KLASA MONET ------------------------------------------
+class Monety(object):
+    
+    """Klasa Monet służy do reprezentacji tzw. skarbca na pieniądze.
     ZMIENNE:
-    *nominaly - to zmienna odpowiedzialna za przechowywanie monet,
+    *NOMINALY - to zmienna odpowiedzialna za przechowywanie monet,
     METODY:
     *dodaj_monety - dodaje monety do skarbca na pieniądze oraz sprawdza dostępność danego nominału 
     *bierz_monety - wydaje monety ze skarbca na pieniądze oraz sprawdza dostępność danego nominału """
-
-#--------------------- KLASA MONET ------------------------------------------
-class Monety(object):
+    
     dostepnosc_monety = []
-    nominaly = [0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1.0, 2.0, 5.0]
+    NOMINALY = [0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1.0, 2.0, 5.0]
     for i in range(30):
-        x = r.choice(nominaly)
+        x = r.choice(NOMINALY)
         dostepnosc_monety.append(x)
     dostepnosc_monety.sort(reverse = True)
     print("\nMonety dostępne w automacie to:\n")
@@ -28,47 +29,49 @@ class Monety(object):
 
     def bierz_monety(self, nominal):
         self.dostepnosc_monety.remove(nominal)
-        
-"""Klasa Produktów służy do reprezentacji asortymentu.
+
+
+#--------------------- KLASA PRODUKTOW ------------------------------------------
+class Produkty(object):
+    
+    """Klasa Produktów służy do reprezentacji asortymentu.
     ZMIENNE:
-    *asortyment - to zmienna odpowiedzialna za przechowywanie produktów dostępnych w automacie. Są tu przechowywane takie informacje jak: numer produktu, cena produktu oraz ilość danego produktu w calym asortymencie.
+    *ASORTYMENT - to zmienna odpowiedzialna za przechowywanie produktów dostępnych w automacie. Są tu przechowywane takie informacje jak: numer produktu, cena produktu oraz ilość danego produktu w calym asortymencie.
     METODY:
     *podaj_cene - zwraca cene produktu o danym numerze,
     *podaj_ilosc - zwraca ilosc danego produktu o danym numerze."""
 
-#--------------------- KLASA PRODUKTOW ------------------------------------------
-class Produkty(object):
-    asortyment = [[30, 4.51, 5], [31, 1.10, 5], [32, 4.35, 5], [33, 5.0, 5], [34, 0.55, 5],
+    ASORTYMENT = [[30, 4.51, 5], [31, 1.10, 5], [32, 4.35, 5], [33, 5.0, 5], [34, 0.55, 5],
                   [35, 5.20, 5], [36, 8.0, 5], [37, 6.20, 5], [38, 4.25, 5], [39, 5.10, 5],
                   [40, 2.60, 5], [41, 4.15, 5], [42, 7.50, 5], [43, 5.25, 5], [44, 1.60, 1],
                   [45, 2.0, 5], [46, 5.52, 5], [47, 8.0, 5], [48, 1.00, 5], [49, 1.90, 5], [50, 1.05, 5]]
 
     def podaj_cene(self, numer): 
-        for x in range(len(self.asortyment)):
-            if self.asortyment[x][0] == numer:
-                return self.asortyment[x][1]
+        for x in range(len(self.ASORTYMENT)):
+            if self.ASORTYMENT[x][0] == numer:
+                return self.ASORTYMENT[x][1]
 
     def podaj_ilosc(self, numer):
-        for x in range(len(self.asortyment)):#len - pokazuje ilosc znakow w stringu
-            if self.asortyment[x][0] == numer:
-                return self.asortyment[x][2]
+        for x in range(len(self.ASORTYMENT)):#len - pokazuje ilosc znakow w stringu
+            if self.ASORTYMENT[x][0] == numer:
+                return self.ASORTYMENT[x][2]
     print("\nAsortyment w automacie to:\n")
-    print(asortyment)
+    print(ASORTYMENT)
     
-"""Klasa do obslugi automatu służy do obslugi maszyny.
+#--------------------- KLASA DO OBSLUGI AUTOMATU ------------------------------------------
+class ObslugaAutomatu(Produkty, Monety):
+    
+    """Klasa do obslugi automatu służy do obslugi maszyny.
     METODY:
     *sprawdz - sprawdza ilosc danego asortymentu,
     *usun_asortyment - służy do usunięcia zakupionego towaru z asortymentu,
     *reszta - wydaje reszte za zakupiony towar, wyciąga monety ze skarbca na pieniądze lub informuje klienta by wrzucił odliczoną kwote, gdy nie jest w stanie wydać reszty. """
     
-#--------------------- KLASA DO OBSLUGI AUTOMATU ------------------------------------------
-class Obsluga_automatu(Produkty, Monety):
-
     def __init__(self, numer):
         self.numer = numer
 
     def sprawdz(self):
-        if self.numer not in range(30, 51):  #range - to nie generator
+        if  not 30 <= self.numer <= 50:  #range - to nie generator
             daj = 0
         else:
             x = Produkty.podaj_ilosc(self, self.numer)
@@ -79,9 +82,9 @@ class Obsluga_automatu(Produkty, Monety):
         return daj
 
     def usun_asortyment(self):
-        for x in range(len(self.asortyment)):
-            if self.asortyment[x][0] == self.numer:
-                self.asortyment[x][2] = self.asortyment[x][2] - 1
+        for x in range(len(self.ASORTYMENT)):
+            if self.ASORTYMENT[x][0] == self.numer:
+                self.ASORTYMENT[x][2] = self.ASORTYMENT[x][2] - 1
         print("Napój zostal usuniety!")
         
     def reszta(self, roznica):
@@ -113,6 +116,7 @@ class Obsluga_automatu(Produkty, Monety):
             print(self.dostepnosc_monety)
             wypisz = wypisz + "\n Reszta =  " + str(round(sum(pomocnicza), 3)) + " zł"
             return wypisz, j
+#help(ObslugaAutomatu) #sprawdzenie działania help
 
 """Klasy wyjatkow slużą do opisów błedów, nie kończa programu
     KLASY:
@@ -128,14 +132,15 @@ class BlednyNumer(Exception):
 class ProduktWyprzedany(Exception):
     pass
 
-"""Klasy Tkinter
+#--------------------- KLASA TKINTER ------------------------------------------
+class Tkinter(object):
+    
+    """Klasy Tkinter
     ZMIENNE:
     *przycisk - zatwierdzenie kliknietego przycisku -> komunikat,
     *moneta - sluzy do wrzucania monet, sumuje,
     *obliczam_roznice - oblicza różnice pomiędzy kwota zaplaconą przez klienta a kwotą produktu z asortymentu."""
-
-#--------------------- KLASA TKINTER ------------------------------------------
-class Tkinter(object):
+    
     wypisz = ''
     wrzucone = '0'
     cena = '0'
@@ -150,7 +155,7 @@ class Tkinter(object):
         cena = self.cena
         lista = self.lista
         roznica = self.roznica
-        self.d = Obsluga_automatu(self.numer)
+        self.d = ObslugaAutomatu(self.numer)
         self.g = Monety()
 
     def przycisk(self, num):
@@ -168,17 +173,19 @@ class Tkinter(object):
         self.roznica = str(round(eval(self.roznica), 3))
         return self.roznica
 
-    """Obsluga przyciskow funkcyjnych:
-    ZMIENNE:
-    *przycisk_tak - inaczej mówiąc przycisk zielony tzw. 'tik', 'fajka', informuje klienta, o cenie wybranego produktu, oraz podaje klarowny komunikat o wrzucenie pieniędzy za towar, jeśli produkt jest nie dostępny prosi by klient sprawdził dostępnosc danego produktu bądź tez czy wybral poprawny numer z listy asortymentu,
-    *przycisk_sprawdz - informuje klienta, gdy podal zly numer wybranego przez siebie produktu, następnie sprawdza dostepnosć produktu - informuje o braku lub dostępności produktu w asortymencie i podaje cene tego produktu,
-    *przycisk_do_czyszczenia - inaczej mówiąc przycisk czerwony X, służy do tzw. resetowania programu od początku, tzn. jeśli klient wybrał produkt i wplacil za niego cześć pieniędzy badz też calość, to i tak w dowolnej chwili moze nacisnąć ten przycisk i zanulować transakcje, wtedy automat odda mu wrzucone pieniądze i powróci do stanu wyjściowego,
-    *przycisk_do_zatwietdzania - niebieski przycisk ze słowem 'ZATWIERDZ', informuje klienta o tym ile zostalo mu jeszcze do zaplaty, oraz informuje o wydaniu produktu za który klient zaplacił"""
 
 #--------------------- OBSLUGA PRZYCISKOW FUNKCYJNYCH ------------------------------------------
     def przycisk_tak(self):
+        
+        """Obsluga przyciskow funkcyjnych:
+        ZMIENNE:
+        *przycisk_tak - inaczej mówiąc przycisk zielony tzw. 'tik', 'fajka', informuje klienta, o cenie wybranego produktu, oraz podaje klarowny komunikat o wrzucenie pieniędzy za towar, jeśli produkt jest nie dostępny prosi by klient sprawdził dostępnosc danego produktu bądź tez czy wybral poprawny numer z listy asortymentu,
+        *przycisk_sprawdz - informuje klienta, gdy podal zly numer wybranego przez siebie produktu, następnie sprawdza dostepnosć produktu - informuje o braku lub dostępności produktu w asortymencie i podaje cene tego produktu,
+        *przycisk_do_czyszczenia - inaczej mówiąc przycisk czerwony X, służy do tzw. resetowania programu od początku, tzn. jeśli klient wybrał produkt i wplacil za niego cześć pieniędzy badz też calość, to i tak w dowolnej chwili moze nacisnąć ten przycisk i zanulować transakcje, wtedy automat odda mu wrzucone pieniądze i powróci do stanu wyjściowego,
+        *przycisk_do_zatwietdzania - niebieski przycisk ze słowem 'ZATWIERDZ', informuje klienta o tym ile zostalo mu jeszcze do zaplaty, oraz informuje o wydaniu produktu za który klient zaplacił"""
+
         self.numer = eval(self.wypisz)
-        self.d = Obsluga_automatu(self.numer)
+        self.d = ObslugaAutomatu(self.numer)
         if self.d.sprawdz() == 1:
             self.cena = str(self.d.podaj_cene(self.numer))
             self.wypisz = "Cena wybranego produktu to " + self.cena + " zł. \nWrzuć monety."
@@ -191,7 +198,7 @@ class Tkinter(object):
     
     def przycisk_sprawdz(self):
         self.numer = eval(self.wypisz)
-        self.d = Obsluga_automatu(self.numer)
+        self.d = ObslugaAutomatu(self.numer)
         if self.d.sprawdz() == 0:
             self.wypisz = "Podałeś zły numer produktu, \nkliknij czerwony przycisk i spróbuj jescze raz."
             string.set(self.wypisz)
