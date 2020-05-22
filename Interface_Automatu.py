@@ -2,14 +2,15 @@ from tkinter import *
 import System_Automatu as s
 import Wyjatki as w
 
-"""Klasy Tkinter
+#--------------------- KLASA TKINTER ------------------------------------------
+class Tkinter(object):
+    
+    """Klasy Tkinter
     ZMIENNE:
     *przycisk - zatwierdzenie kliknietego przycisku -> komunikat,
     *moneta - sluzy do wrzucania monet, sumuje,
     *obliczam_roznice - oblicza różnice pomiędzy kwota zaplaconą przez klienta a kwotą produktu z asortymentu."""
-
-#--------------------- KLASA TKINTER ------------------------------------------
-class Tkinter(object):
+    
     wypisz = ''
     wrzucone = '0'
     cena = '0'
@@ -42,15 +43,16 @@ class Tkinter(object):
         self.roznica = str(round(eval(self.roznica), 3))
         return self.roznica
 
-    """Obsluga przyciskow funkcyjnych:
-    ZMIENNE:
-    *przycisk_tak - inaczej mówiąc przycisk zielony tzw. 'tik', 'fajka', informuje klienta, o cenie wybranego produktu, oraz podaje klarowny komunikat o wrzucenie pieniędzy za towar, jeśli produkt jest nie dostępny prosi by klient sprawdził dostępnosc danego produktu bądź tez czy wybral poprawny numer z listy asortymentu,
-    *przycisk_sprawdz - informuje klienta, gdy podal zly numer wybranego przez siebie produktu, następnie sprawdza dostepnosć produktu - informuje o braku lub dostępności produktu w asortymencie i podaje cene tego produktu,
-    *przycisk_do_czyszczenia - inaczej mówiąc przycisk czerwony X, służy do tzw. resetowania programu od początku, tzn. jeśli klient wybrał produkt i wplacil za niego cześć pieniędzy badz też calość, to i tak w dowolnej chwili moze nacisnąć ten przycisk i zanulować transakcje, wtedy automat odda mu wrzucone pieniądze i powróci do stanu wyjściowego,
-    *przycisk_do_zatwietdzania - niebieski przycisk ze słowem 'ZATWIERDZ', informuje klienta o tym ile zostalo mu jeszcze do zaplaty, oraz informuje o wydaniu produktu za który klient zaplacił"""
-
-#--------------------- OBSLUGA PRZYCISKOW FUNKCYJNYCH ------------------------------------------
+   #--------------------- OBSLUGA PRZYCISKOW FUNKCYJNYCH ------------------------------------------
     def przycisk_tak(self):
+        
+        """Obsluga przyciskow funkcyjnych:
+        ZMIENNE:
+        *przycisk_tak - inaczej mówiąc przycisk zielony tzw. 'tik', 'fajka', informuje klienta, o cenie wybranego produktu, oraz podaje klarowny komunikat o wrzucenie pieniędzy za towar, jeśli produkt jest nie dostępny prosi by klient sprawdził dostępnosc danego produktu bądź tez czy wybral poprawny numer z listy asortymentu,
+        *przycisk_sprawdz - informuje klienta, gdy podal zly numer wybranego przez siebie produktu, następnie sprawdza dostepnosć produktu - informuje o braku lub dostępności produktu w asortymencie i podaje cene tego produktu,
+        *przycisk_do_czyszczenia - inaczej mówiąc przycisk czerwony X, służy do tzw. resetowania programu od początku, tzn. jeśli klient wybrał produkt i wplacil za niego cześć pieniędzy badz też calość, to i tak w dowolnej chwili moze nacisnąć ten przycisk i zanulować transakcje, wtedy automat odda mu wrzucone pieniądze i powróci do stanu wyjściowego,
+        *przycisk_do_zatwietdzania - niebieski przycisk ze słowem 'ZATWIERDZ', informuje klienta o tym ile zostalo mu jeszcze do zaplaty, oraz informuje o wydaniu produktu za który klient zaplacił"""
+
         self.numer = eval(self.wypisz)
         self.d = s.ObslugaAutomatu(self.numer)
         if self.d.sprawdz() == 1:
