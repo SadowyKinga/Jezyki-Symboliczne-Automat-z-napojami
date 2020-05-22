@@ -69,7 +69,7 @@ class Obsluga_automatu(Produkty, Monety):
         self.numer = numer
 
     def sprawdz(self):
-        if self.numer not in range(30, 51):  #range - to nie generator
+        if not 30 <= numer <= 50:
             daj = 0
         else:
             x = Produkty.podaj_ilosc(self, self.numer)
