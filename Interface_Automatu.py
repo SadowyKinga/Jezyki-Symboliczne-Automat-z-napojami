@@ -199,7 +199,7 @@ ramka_nr_7.place(relx = 0.05, rely = 0.8665, relwidth = 0.5, relheight = 0.04)
 """Tworzę kolejne pola - pierwsze do informacji ogólnej co nalezy zrobic by rozpocząc transakcje, drugie do asortymentu. """
 
 #--------------------- KOLEJNE POLE AUTOMATU 2 --------------------------------------
-pole_nr_2 = Label(ramka_nr_1, background = "black", foreground = "white", font = ("Arial",21, "italic"), textvariable = string, anchor = CENTER) #background - kolor tła, foreground - kolor czcionki, font - czcionka jakiej uzywamy do wyświetlania tekstu , anchor - kontroluje gdzie ustawiamy np. tekst -> N, NE, E, SE, S, SW, W, NW, CENTER
+pole_nr_2 = Label(ramka_nr_1, background = "black", foreground = "white", font = ("Arial",18, "italic"), textvariable = string, anchor = CENTER) #background - kolor tła, foreground - kolor czcionki, font - czcionka jakiej uzywamy do wyświetlania tekstu , anchor - kontroluje gdzie ustawiamy np. tekst -> N, NE, E, SE, S, SW, W, NW, CENTER
 pole_nr_2.place(relx = 0, rely = 0, relwidth = 1, relheight = 1)  #relx - polożenie poziome, rely - połozenie pionowe, relwidth - rozmiar szerokosci, relheight - rozmiar wysokosci
 pole_nr_3 = Label(ramka_nr_3, text = 'Napoje', font = ("Arial",23, "italic"), foreground="red", anchor = CENTER) #anchor - położenie tekstu tu akurat wysrodkowane, foreground - 
 pole_nr_3.place(relwidth = 1, relheight = 1)
