@@ -1,4 +1,4 @@
-import random as r
+import random as rnd
 from tkinter import *
 
 #--------------------- KLASA MONET ------------------------------------------
@@ -14,7 +14,7 @@ class Monety(object):
     dostepnosc_monety = []
     NOMINALY = [0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1.0, 2.0, 5.0]
     for i in range(30):
-        x = r.choice(NOMINALY)
+        x = rnd.choice(NOMINALY)
         dostepnosc_monety.append(x)
     dostepnosc_monety.sort(reverse = True)
     print("\nMonety dostępne w automacie to:\n")
@@ -118,19 +118,21 @@ class ObslugaAutomatu(Produkty, Monety):
             return wypisz, j
 #help(ObslugaAutomatu) #sprawdzenie działania help
 
-"""Klasy wyjatkow slużą do opisów błedów, nie kończa programu
-    KLASY:
-    *BladNumeruLubBrakProduktu - informuje klienta, iż najprawdopodobniej podał zly numer produktu, lub produkt został wyczerpany, ,
-    *BlednyNumer - informuje klienta, iż podał niepoprawny numer produktu,
-    *ProduktWyprzedany - informuje klienta, iz dany produkt został wyprzedany."""
-
 #----------------------- WYJATKI ---------------------------------------------
 class BladNumeruLubBrakProduktu(Exception):
-    pass
+    """Klasy wyjatkow slużą do opisów błedów, nie kończa programu
+    KLASY:
+    *BladNumeruLubBrakProduktu - informuje klienta, iż najprawdopodobniej podał zly numer produktu, lub produkt został wyczerpany """
+    
 class BlednyNumer(Exception):
-    pass
+    """Klasy wyjatkow slużą do opisów błedów, nie kończa programu
+    KLASY:
+    *BlednyNumer - informuje klienta, iż podał niepoprawny numer produktu """
+    
 class ProduktWyprzedany(Exception):
-    pass
+    """Klasy wyjatkow slużą do opisów błedów, nie kończa programu
+    KLASY:
+    *ProduktWyprzedany - informuje klienta, iz dany produkt został wyprzedany."""
 
 #--------------------- KLASA TKINTER ------------------------------------------
 class Tkinter(object):
@@ -184,34 +186,34 @@ class Tkinter(object):
         *przycisk_do_czyszczenia - inaczej mówiąc przycisk czerwony X, służy do tzw. resetowania programu od początku, tzn. jeśli klient wybrał produkt i wplacil za niego cześć pieniędzy badz też calość, to i tak w dowolnej chwili moze nacisnąć ten przycisk i zanulować transakcje, wtedy automat odda mu wrzucone pieniądze i powróci do stanu wyjściowego,
         *przycisk_do_zatwietdzania - niebieski przycisk ze słowem 'ZATWIERDZ', informuje klienta o tym ile zostalo mu jeszcze do zaplaty, oraz informuje o wydaniu produktu za który klient zaplacił"""
 
-        self.numer = eval(self.wypisz)
+        self.numer = float(self.wypisz)
         self.d = ObslugaAutomatu(self.numer)
         if self.d.sprawdz() == 1:
             self.cena = str(self.d.podaj_cene(self.numer))
-            self.wypisz = "Cena wybranego produktu to " + self.cena + " zł. \nWrzuć monety."
+            self.wypisz = "Cena wybranego produktu to: " + self.cena + " zł. \nWrzuć monety."
             string.set(self.wypisz)
             self.wypisz = ""
         else:
-            self.wypisz = "Nie mogę sprzedać tego produktu.\nSprawdź czy jest on dostępny \nlub czy wybrałeś dobry numer."
+            self.wypisz = "Nie mogę sprzedać tego produktu.\nSprawdź czy jest on dostępny \noraz czy wybrałeś dobry numer!"
             string.set(self.wypisz)
             raise BladNumeruLubBrakProduktu
     
     def przycisk_sprawdz(self):
-        self.numer = eval(self.wypisz)
+        self.numer = float(self.wypisz)
         self.d = ObslugaAutomatu(self.numer)
         if self.d.sprawdz() == 0:
-            self.wypisz = "Podałeś zły numer produktu, \nkliknij czerwony przycisk i spróbuj jescze raz."
+            self.wypisz = "Podałeś zły numer produktu, \nkliknij czerwony przycisk i spróbuj jescze raz!"
             string.set(self.wypisz)
             raise BlednyNumer()
         elif self.d.sprawdz() == 1:
             self.wypisz = "Produkt jest dostępny.\n"
             string.set(self.wypisz)
             self.cena = str(self.d.podaj_cene(self.numer))
-            self.wypisz = self.wypisz + "Cena wybranego produktu to " + self.cena + " zł."
+            self.wypisz = self.wypisz + "Cena wybranego produktu to: " + self.cena + " zł."
             string.set(self.wypisz)
             self.wypisz = ""
         elif self.d.sprawdz() == 2:
-            self.wypisz = "Produkt jest niedostępny."
+            self.wypisz = "Produkt jest niedostępny!"
             string.set(self.wypisz)
             raise ProduktWyprzedany()
 
@@ -219,17 +221,17 @@ class Tkinter(object):
         self.wypisz = ""
         string.set(self.wypisz)
         if self.wrzucone is not "0":
-            string.set("Zwracam wrzucone pieniądze.")
+            string.set("Zwracam wrzucone pieniądze!")
             self.wrzucone = "0"
         else:
             string.set(
-                'Podaj numer (30-50) a następnie co chcesz zrobić \n Zielony przycisk - rozpoczecie zakupu\n Czerwony - anulowanie zakupu, \n Niebieski - sprawdzenie dostepnosci towaru')
+                'Podaj numer z przedziału 30-50, a następnie co chcesz zrobić: \n *zielony przycisk - rozpoczecie zakupu;\n *czerwony - anulowanie zakupu; \n *niebieski - sprawdzenie dostepnosci towaru.')
 
     def przycisk_do_zatwietdzania(self):
         if float(self.wrzucone) < float(self.cena):
             brak = self.cena + "-" + self.wrzucone
             brak = str(round(eval(brak), 3))
-            self.wypisz = "Do zapłaty pozostało jeszcze " + brak
+            self.wypisz = "Do zapłaty pozostało jeszcze: " + brak + "zł."
             string.set(self.wypisz)
         if float(self.wrzucone) >= float(self.cena):
             self.wypisz = 'Wydawanie produktu.'
@@ -330,7 +332,7 @@ ramka_nr_7.place(relx = 0.05, rely = 0.8665, relwidth = 0.5, relheight = 0.04)
 """Tworzę kolejne pola - pierwsze do informacji ogólnej co nalezy zrobic by rozpocząc transakcje, drugie do asortymentu. """
 
 #--------------------- KOLEJNE POLE AUTOMATU 2 --------------------------------------
-pole_nr_2 = Label(ramka_nr_1, background = "black", foreground = "white", font = ("Arial",21, "italic"), textvariable = string, anchor = CENTER) #background - kolor tła, foreground - kolor czcionki, font - czcionka jakiej uzywamy do wyświetlania tekstu , anchor - kontroluje gdzie ustawiamy np. tekst -> N, NE, E, SE, S, SW, W, NW, CENTER
+pole_nr_2 = Label(ramka_nr_1, background = "black", foreground = "white", font = ("Arial",18, "italic"), textvariable = string, anchor = CENTER) #background - kolor tła, foreground - kolor czcionki, font - czcionka jakiej uzywamy do wyświetlania tekstu , anchor - kontroluje gdzie ustawiamy np. tekst -> N, NE, E, SE, S, SW, W, NW, CENTER
 pole_nr_2.place(relx = 0, rely = 0, relwidth = 1, relheight = 1)  #relx - polożenie poziome, rely - połozenie pionowe, relwidth - rozmiar szerokosci, relheight - rozmiar wysokosci
 pole_nr_3 = Label(ramka_nr_3, text = 'Napoje', font = ("Arial",23, "italic"), foreground="red", anchor = CENTER) #anchor - położenie tekstu tu akurat wysrodkowane, foreground - 
 pole_nr_3.place(relwidth = 1, relheight = 1)
