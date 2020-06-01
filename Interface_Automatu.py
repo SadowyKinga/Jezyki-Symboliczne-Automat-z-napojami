@@ -1,6 +1,6 @@
 from tkinter import *
-import System_Automatu as s
-import Wyjatki as w
+import System_Automatu as system
+import Wyjatki as wyjatek
 
 #--------------------- KLASA TKINTER ------------------------------------------
 class Tkinter(object):
@@ -25,8 +25,8 @@ class Tkinter(object):
         cena = self.cena
         lista = self.lista
         roznica = self.roznica
-        self.d = s.ObslugaAutomatu(self.numer)
-        self.g = s.Monety()
+        self.d = system.ObslugaAutomatu(self.numer)
+        self.g = system.Monety()
 
     def przycisk(self, num):
         self.wypisz = self.wypisz + str(num)
@@ -54,7 +54,7 @@ class Tkinter(object):
         *przycisk_do_zatwietdzania - niebieski przycisk ze słowem 'ZATWIERDZ', informuje klienta o tym ile zostalo mu jeszcze do zaplaty, oraz informuje o wydaniu produktu za który klient zaplacił"""
 
         self.numer = eval(self.wypisz)
-        self.d = s.ObslugaAutomatu(self.numer)
+        self.d = system.ObslugaAutomatu(self.numer)
         if self.d.sprawdz() == 1:
             self.cena = str(self.d.podaj_cene(self.numer))
             self.wypisz = "Cena wybranego produktu to " + self.cena + " zł. \nWrzuć monety."
@@ -63,15 +63,15 @@ class Tkinter(object):
         else:
             self.wypisz = "Nie mogę sprzedać tego produktu.\nSprawdź czy jest on dostępny \nlub czy wybrałeś dobry numer."
             string.set(self.wypisz)
-            raise w.BladNumeruLubBrakProduktu
+            raise wyjatek.BladNumeruLubBrakProduktu
     
     def przycisk_sprawdz(self):
         self.numer = eval(self.wypisz)
-        self.d = s.ObslugaAutomatu(self.numer)
+        self.d = system.ObslugaAutomatu(self.numer)
         if self.d.sprawdz() == 0:
             self.wypisz = "Podałeś zły numer produktu, \nkliknij czerwony przycisk i spróbuj jescze raz."
             string.set(self.wypisz)
-            raise w.BlednyNumer()
+            raise wyjatek.BlednyNumer()
         elif self.d.sprawdz() == 1:
             self.wypisz = "Produkt jest dostępny.\n"
             string.set(self.wypisz)
@@ -82,7 +82,7 @@ class Tkinter(object):
         elif self.d.sprawdz() == 2:
             self.wypisz = "Produkt jest niedostępny."
             string.set(self.wypisz)
-            raise w.ProduktWyprzedany()
+            raise wyjatek.ProduktWyprzedany()
 
     def przycisk_do_czyszczenia(self):
         self.wypisz = ""
