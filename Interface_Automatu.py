@@ -57,11 +57,11 @@ class Tkinter(object):
         self.d = system.ObslugaAutomatu(self.numer)
         if self.d.sprawdz() == 1:
             self.cena = str(self.d.podaj_cene(self.numer))
-            self.wypisz = "Cena wybranego produktu to " + self.cena + " zł. \nWrzuć monety."
+            self.wypisz = "Cena wybranego produktu to: " + self.cena + " zł. \nWrzuć monety."
             string.set(self.wypisz)
             self.wypisz = ""
         else:
-            self.wypisz = "Nie mogę sprzedać tego produktu.\nSprawdź czy jest on dostępny \nlub czy wybrałeś dobry numer."
+            self.wypisz = "Nie mogę sprzedać tego produktu.\nSprawdź czy jest on dostępny \noraz czy wybrałeś dobry numer!"
             string.set(self.wypisz)
             raise wyjatek.BladNumeruLubBrakProduktu
     
@@ -69,18 +69,18 @@ class Tkinter(object):
         self.numer = float(self.wypisz)
         self.d = system.ObslugaAutomatu(self.numer)
         if self.d.sprawdz() == 0:
-            self.wypisz = "Podałeś zły numer produktu, \nkliknij czerwony przycisk i spróbuj jescze raz."
+            self.wypisz = "Podałeś zły numer produktu, \nkliknij czerwony przycisk i spróbuj jescze raz!"
             string.set(self.wypisz)
             raise wyjatek.BlednyNumer()
         elif self.d.sprawdz() == 1:
             self.wypisz = "Produkt jest dostępny.\n"
             string.set(self.wypisz)
             self.cena = str(self.d.podaj_cene(self.numer))
-            self.wypisz = self.wypisz + "Cena wybranego produktu to " + self.cena + " zł."
+            self.wypisz = self.wypisz + "Cena wybranego produktu to: " + self.cena + " zł."
             string.set(self.wypisz)
             self.wypisz = ""
         elif self.d.sprawdz() == 2:
-            self.wypisz = "Produkt jest niedostępny."
+            self.wypisz = "Produkt jest niedostępny!"
             string.set(self.wypisz)
             raise wyjatek.ProduktWyprzedany()
 
@@ -88,17 +88,17 @@ class Tkinter(object):
         self.wypisz = ""
         string.set(self.wypisz)
         if self.wrzucone is not "0":
-            string.set("Zwracam wrzucone pieniądze.")
+            string.set("Zwracam wrzucone pieniądze!")
             self.wrzucone = "0"
         else:
             string.set(
-                'Podaj numer (30-50) a następnie co chcesz zrobić \n Zielony przycisk - rozpoczecie zakupu\n Czerwony - anulowanie zakupu, \n Niebieski - sprawdzenie dostepnosci towaru')
+                'Podaj numer z przedziału 30-50, a następnie co chcesz zrobić. \n Zielony przycisk - rozpoczecie zakupu,\n Czerwony - anulowanie zakupu, \n Niebieski - sprawdzenie dostepnosci towaru.')
 
     def przycisk_do_zatwietdzania(self):
         if float(self.wrzucone) < float(self.cena):
             brak = self.cena + "-" + self.wrzucone
             brak = str(round(eval(brak), 3))
-            self.wypisz = "Do zapłaty pozostało jeszcze " + brak
+            self.wypisz = "Do zapłaty pozostało jeszcze: " + brak + "zł"
             string.set(self.wypisz)
         if float(self.wrzucone) >= float(self.cena):
             self.wypisz = 'Wydawanie produktu.'
