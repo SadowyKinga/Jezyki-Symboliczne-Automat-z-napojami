@@ -53,7 +53,7 @@ class Tkinter(object):
         *przycisk_do_czyszczenia - inaczej mówiąc przycisk czerwony X, służy do tzw. resetowania programu od początku, tzn. jeśli klient wybrał produkt i wplacil za niego cześć pieniędzy badz też calość, to i tak w dowolnej chwili moze nacisnąć ten przycisk i zanulować transakcje, wtedy automat odda mu wrzucone pieniądze i powróci do stanu wyjściowego,
         *przycisk_do_zatwietdzania - niebieski przycisk ze słowem 'ZATWIERDZ', informuje klienta o tym ile zostalo mu jeszcze do zaplaty, oraz informuje o wydaniu produktu za który klient zaplacił"""
 
-        self.numer = eval(self.wypisz)
+        self.numer = float(self.wypisz)
         self.d = system.ObslugaAutomatu(self.numer)
         if self.d.sprawdz() == 1:
             self.cena = str(self.d.podaj_cene(self.numer))
@@ -66,7 +66,7 @@ class Tkinter(object):
             raise wyjatek.BladNumeruLubBrakProduktu
     
     def przycisk_sprawdz(self):
-        self.numer = eval(self.wypisz)
+        self.numer = float(self.wypisz)
         self.d = system.ObslugaAutomatu(self.numer)
         if self.d.sprawdz() == 0:
             self.wypisz = "Podałeś zły numer produktu, \nkliknij czerwony przycisk i spróbuj jescze raz."
