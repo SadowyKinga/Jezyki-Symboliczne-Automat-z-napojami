@@ -1,6 +1,5 @@
-import random as r
+import random as rnd
 from tkinter import *
-import Wyjatki as w
 
 #--------------------- KLASA MONET ------------------------------------------
 class Monety(object):
@@ -15,7 +14,7 @@ class Monety(object):
     dostepnosc_monety = []
     NOMINALY = [0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1.0, 2.0, 5.0]
     for i in range(30):
-        x = r.choice(NOMINALY)
+        x = rnd.choice(NOMINALY)
         dostepnosc_monety.append(x)
     dostepnosc_monety.sort(reverse = True)
     print("\nMonety dostępne w automacie to:\n")
