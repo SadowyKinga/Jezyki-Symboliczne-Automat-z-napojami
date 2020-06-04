@@ -81,9 +81,9 @@ class ObslugaAutomatu(Produkty, Monety):
         return daj
 
     def usun_asortyment(self):
-        for x in range(len(self.ASORTYMENT)):
-            if self.ASORTYMENT[x][0] == self.numer:
-                self.ASORTYMENT[x][2] = self.ASORTYMENT[x][2] - 1
+        for produkt in self.ASORTYMENT:
+            if produkt[0] == self.numer:
+                produkt[2] = produkt[2] - 1
         print("Napój zostal usuniety!")
         
     def reszta(self, roznica):
