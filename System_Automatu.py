@@ -46,14 +46,14 @@ class Produkty(object):
                   [45, 2.0, 5], [46, 5.52, 5], [47, 8.0, 5], [48, 1.00, 5], [49, 1.90, 5], [50, 1.05, 5]]
 
     def podaj_cene(self, numer): 
-        for x in range(len(self.ASORTYMENT)):
-            if self.ASORTYMENT[x][0] == numer:
-                return self.ASORTYMENT[x][1]
+        for produkt in self.ASORTYMENT:
+            if produkt[0] == numer:
+                return produkt[1]
 
     def podaj_ilosc(self, numer):
-        for x in range(len(self.ASORTYMENT)):#len - pokazuje ilosc znakow w stringu
-            if self.ASORTYMENT[x][0] == numer:
-                return self.ASORTYMENT[x][2]
+        for produkt in self.ASORTYMENT:#len - pokazuje ilosc znakow w stringu
+            if produkt[0] == numer:
+                return produkt[2]
     print("\nAsortyment w automacie to:\n")
     print(ASORTYMENT)
     
