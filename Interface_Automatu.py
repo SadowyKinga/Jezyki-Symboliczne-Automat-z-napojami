@@ -57,7 +57,7 @@ class Tkinter(object):
         self.d = system.ObslugaAutomatu(self.numer)
         if self.d.sprawdz() == 1:
             self.cena = str(self.d.podaj_cene(self.numer))
-            self.wypisz = "Cena wybranego produktu to: " + self.cena + " zł. \nWrzuć monety."
+            self.wypisz = f'Cena wybranego produktu to: {self.cena} zł. \nWrzuć monety.'
             string.set(self.wypisz)
             self.wypisz = ""
         else:
@@ -76,7 +76,7 @@ class Tkinter(object):
             self.wypisz = "Produkt jest dostępny.\n"
             string.set(self.wypisz)
             self.cena = str(self.d.podaj_cene(self.numer))
-            self.wypisz = self.wypisz + "Cena wybranego produktu to: " + self.cena + " zł."
+            self.wypisz = f'{self.wypisz} Cena wybranego produktu to: {self.cena} zł.'
             string.set(self.wypisz)
             self.wypisz = ""
         elif self.d.sprawdz() == 2:
@@ -98,7 +98,7 @@ class Tkinter(object):
         if float(self.wrzucone) < float(self.cena):
             brak = self.cena + "-" + self.wrzucone
             brak = str(round(eval(brak), 3))
-            self.wypisz = "Do zapłaty pozostało jeszcze: " + brak + "zł."
+            self.wypisz = f'Do zapłaty pozostało jeszcze: {brak} zł'
             string.set(self.wypisz)
         if float(self.wrzucone) >= float(self.cena):
             self.wypisz = 'Wydawanie produktu.'
