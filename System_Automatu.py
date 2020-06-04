@@ -113,6 +113,6 @@ class ObslugaAutomatu(Produkty, Monety):
                 j = False
             print()
             print(self.dostepnosc_monety)
-            wypisz = wypisz + "\n Reszta =  " + str(round(sum(pomocnicza), 3)) + " zł"
+            wypisz = f'{wypisz} \n Reszta = {sum(pomocnicza):.2f} zł.'
             return wypisz, j
 #help(ObslugaAutomatu) #sprawdzenie działania help
