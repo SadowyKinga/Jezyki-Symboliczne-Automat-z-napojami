@@ -114,7 +114,7 @@ class ObslugaAutomatu(Produkty, Monety):
                 j = False
             print()
             print(self.dostepnosc_monety)
-            wypisz = wypisz + "\n Reszta =  " + str(round(sum(pomocnicza), 3)) + " zł"
+            wypisz = f'{wypisz} \n Reszta = {sum(pomocnicza):.2f} zł.'
             return wypisz, j
 #help(ObslugaAutomatu) #sprawdzenie działania help
 
@@ -190,7 +190,7 @@ class Tkinter(object):
         self.d = ObslugaAutomatu(self.numer)
         if self.d.sprawdz() == 1:
             self.cena = str(self.d.podaj_cene(self.numer))
-            self.wypisz = "Cena wybranego produktu to: " + self.cena + " zł. \nWrzuć monety."
+            self.wypisz = f'Cena wybranego produktu to: {self.cena} zł. \nWrzuć monety.'
             string.set(self.wypisz)
             self.wypisz = ""
         else:
@@ -209,7 +209,7 @@ class Tkinter(object):
             self.wypisz = "Produkt jest dostępny.\n"
             string.set(self.wypisz)
             self.cena = str(self.d.podaj_cene(self.numer))
-            self.wypisz = self.wypisz + "Cena wybranego produktu to: " + self.cena + " zł."
+            self.wypisz = f'{self.wypisz} Cena wybranego produktu to: {self.cena} zł.'
             string.set(self.wypisz)
             self.wypisz = ""
         elif self.d.sprawdz() == 2:
@@ -231,7 +231,7 @@ class Tkinter(object):
         if float(self.wrzucone) < float(self.cena):
             brak = self.cena + "-" + self.wrzucone
             brak = str(round(eval(brak), 3))
-            self.wypisz = "Do zapłaty pozostało jeszcze: " + brak + "zł."
+            self.wypisz = f'Do zapłaty pozostało jeszcze: {brak} zł'
             string.set(self.wypisz)
         if float(self.wrzucone) >= float(self.cena):
             self.wypisz = 'Wydawanie produktu.'
