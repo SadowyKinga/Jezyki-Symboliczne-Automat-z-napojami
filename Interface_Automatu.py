@@ -95,8 +95,7 @@ class Tkinter(object):
             string.set("Zwracam wrzucone pieniądze!")
             self.wrzucone = "0"
         else:
-            string.set(
-                'Podaj numer z przedziału 30-50, a następnie co chcesz zrobić: \n *zielony przycisk - rozpoczecie zakupu;\n *czerwony - anulowanie zakupu; \n *niebieski - sprawdzenie dostepnosci towaru.')
+            string.set('Podaj numer z przedziału 30-50, a następnie co chcesz zrobić: \nZielony przycisk - rozpoczecie zakupu; \nCzerwony - anulowanie zakupu; \nNiebieski - sprawdzenie dostepnosci towaru. \n\nBy sprawdzić wartość energetyczną wybranego napoju \nnajedź na niego myszką i kliknij na wybrany produkt')
 
     def przycisk_do_zatwietdzania(self):
         if float(self.wrzucone) < float(self.cena):
@@ -169,11 +168,7 @@ jeden_zl = PhotoImage(file = "zdjecia/1zl.png")
 dwa_zl = PhotoImage(file = "zdjecia/2zl.png")
 piec_zl = PhotoImage(file = "zdjecia/5zl.png")
 string = StringVar()
-string.set(
-    'Podaj numer (30-50) a następnie co chcesz zrobić'
-    '\n Zielony przycisk - rozpoczecie zakupu'
-    '\n Czerwony - anulowanie zakupu,'
-    '\n Niebieski - sprawdzenie dostepnosci towaru')
+string.set('Podaj numer z przedziału 30-50, a następnie co chcesz zrobić: \nZielony przycisk - rozpoczecie zakupu; \nCzerwony - anulowanie zakupu; \nNiebieski - sprawdzenie dostepnosci towaru. \n\nBy sprawdzić wartość energetyczną wybranego napoju \nnajedź na niego myszką i kliknij na wybrany produkt')
 
 """Tworzę duże pole do którego następnie wgram tlo by urozmaicic wizualnie automat. 
     *Label - sluży do wyświetlania elementówgraficznych lub tekstu - przyjmuje argumenty (window - uchwyt okna głównego, image - zdjęcie z pliku). """
