@@ -21,7 +21,7 @@ class Monety(object):
     print(dostepnosc_monety)
 
     def __init__(self): #self - przez to kazdy obiekt jest widziany sam przez siebie, nazwa self winna byc pierwszym argumentem wszystkich deklarowanych metod
-        dostepnosc_monety = self.dostepnosc_monety
+        self.dostepnosc_monety = Monety.dostepnosc_monety
 
     def dodaj_monety(self, moneta):
         self.dostepnosc_monety.append(moneta)
@@ -152,11 +152,11 @@ class Tkinter(object):
     d = 0
 
     def __init__(self):
-        wypisz = self.wypisz
-        wrzucone = self.wrzucone
-        cena = self.cena
-        lista = self.lista
-        roznica = self.roznica
+        self.wypisz = Tkinter.wypisz
+        self.wrzucone = Tkinter.wrzucone
+        self.cena = Tkinter.cena
+        self.lista = Tkinter.lista
+        self.roznica = Tkinter.roznica
         self.d = ObslugaAutomatu(self.numer)
         self.g = Monety()
 
