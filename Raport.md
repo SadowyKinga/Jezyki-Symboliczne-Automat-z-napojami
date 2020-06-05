@@ -64,6 +64,8 @@ a. Lambda - wyrażenia:
   
   •[Obsługa przycisków do wyboru numeru produktu](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/9607c7380520fbf3d227f48afffa1df6061dbac0/Interface_Automatu.py#L231)
   
+  •[Obsługa przycisków opisująca dany produkt](https://github.com/SadowyKinga/Jezyki-Symboliczne-Automat-z-napojami/blob/4d64a91f1603fd5477cfa3827a172737166c2094/Interface_Automatu.py#L276)
+  
 	
 b. Klasy:
 
