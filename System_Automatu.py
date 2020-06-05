@@ -21,7 +21,7 @@ class Monety(object):
     print(dostepnosc_monety)
 
     def __init__(self): #self - przez to kazdy obiekt jest widziany sam przez siebie, nazwa self winna byc pierwszym argumentem wszystkich deklarowanych metod
-        dostepnosc_monety = self.dostepnosc_monety
+       self.dostepnosc_monety = Monety.dostepnosc_monety
 
     def dodaj_monety(self, moneta):
         self.dostepnosc_monety.append(moneta)
