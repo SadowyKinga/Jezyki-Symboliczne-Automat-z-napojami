@@ -174,7 +174,10 @@ class Tkinter(object):
         self.roznica = self.wrzucone + "-" + self.cena
         self.roznica = str(round(eval(self.roznica), 3))
         return self.roznica
-
+    
+    def opis(self, num):
+        self.wypisz = str(num) 
+        string.set(self.wypisz)
 
 #--------------------- OBSLUGA PRZYCISKOW FUNKCYJNYCH ------------------------------------------
     def przycisk_tak(self):
@@ -402,27 +405,27 @@ przycisk_nr_9.place(relx = 0.5, rely = 0.5, relwidth = 0.1, relheight = 0.1)
 
 """ Dodaje fotografie asortymentu - produkty z pliku zdjecia, użyte następnie do wizualnego obrazowania automatu oraz ponizej ustalam pozycje i miejsce gdzie maja się znajdować """
 #--------------------- ZDJECIA - ASORTYMENT --------------------------------------
-zdjecie_1 = Label(ramka_nr_4, image = woda_niegazowana)
-zdjecie_2 = Label(ramka_nr_4, image = woda_gazowana)
-zdjecie_3 = Label(ramka_nr_4, image = waterr)
-zdjecie_4 = Label(ramka_nr_4, image = zywiec_zdroj_woda_cytrynowa)
-zdjecie_5 = Label(ramka_nr_4, image = zywiec_zdroj_woda_truskawkowa)
-zdjecie_6 = Label(ramka_nr_4, image = zywiec_zdroj_woda_limonka_i_mieta)
-zdjecie_7 = Label(ramka_nr_4, image = tymbark_h2o_malina)
-zdjecie_8 = Label(ramka_nr_4, image = tymbark_mieta_malina)
-zdjecie_9 = Label(ramka_nr_4, image = tymbark_mango_mieta)
-zdjecie_10 = Label(ramka_nr_4, image = tymbark_jablko_wisnia)
-zdjecie_11 = Label(ramka_nr_4, image = tymbark_jablko_kiwi)
-zdjecie_12 = Label(ramka_nr_4, image = kubus_banan_jablko_marchewka)
-zdjecie_13 = Label(ramka_nr_4, image = kubus_mango_brzoskwinia_banan)
-zdjecie_14 = Label(ramka_nr_4, image = smoothie_truskawka_jablko)
-zdjecie_15 = Label(ramka_nr_4, image = coca_cola)
-zdjecie_16 = Label(ramka_nr_4, image = pepsi)
-zdjecie_17 = Label(ramka_nr_4, image = fanta)
-zdjecie_18 = Label(ramka_nr_4, image = mirynda)
-zdjecie_19 = Label(ramka_nr_4, image = sprite)
-zdjecie_20 = Label(ramka_nr_4, image = tiger)
-zdjecie_21 = Label(ramka_nr_4, image = black)
+zdjecie_1 = Button(ramka_nr_4, image = woda_niegazowana,  text = "woda_niegazowana", background = "white", borderwidth = 0, command = lambda: tk.opis("Kropla Beskidu \nWoda niegazowana"))
+zdjecie_2 = Button(ramka_nr_4, image = woda_gazowana, text = "woda_gazowana", background = "white", borderwidth = 0, command = lambda: tk.opis("Kropla Beskidu \nWoda gazowana"))
+zdjecie_3 = Button(ramka_nr_4, image = waterr, text = "waterr", background = "white", borderwidth = 0, command = lambda: tk.opis("Kubuś Waterr"))
+zdjecie_4 = Button(ramka_nr_4, image = zywiec_zdroj_woda_cytrynowa, text = "zywiec_zdroj_woda_cytrynowa", background = "white", borderwidth = 0, command = lambda: tk.opis("Żywiec zdrój \nWoda cytrynowa"))
+zdjecie_5 = Button(ramka_nr_4, image = zywiec_zdroj_woda_truskawkowa, text = "zywiec_zdroj_woda_truskawkowa", background = "white", borderwidth = 0, command = lambda: tk.opis("Żywiec zdrój \nWoda truskawkowa"))
+zdjecie_6 = Button(ramka_nr_4, image = zywiec_zdroj_woda_limonka_i_mieta, text = "zywiec_zdroj_woda_limonka_i_mieta", background = "white", borderwidth = 0, command = lambda: tk.opis("Żywiec zdrój \nWoda limonka i mięta"))
+zdjecie_7 = Button(ramka_nr_4, image = tymbark_h2o_malina, text = "tymbark_h2o_malina", background = "white", borderwidth = 0, command = lambda: tk.opis("Tymbark \nH20 malina"))
+zdjecie_8 = Button(ramka_nr_4, image = tymbark_mieta_malina, text = "tymbark_mieta_malina", background = "white", borderwidth = 0, command = lambda: tk.opis("Tymbark \nMięta-malina"))
+zdjecie_9 = Button(ramka_nr_4, image = tymbark_mango_mieta, text = "tymbark_mango_mieta", background = "white", borderwidth = 0, command = lambda: tk.opis("Tymbark \nMango-mięta"))
+zdjecie_10 = Button(ramka_nr_4, image = tymbark_jablko_wisnia, text = "tymbark_jablko_wisnia", background = "white", borderwidth = 0, command = lambda: tk.opis("Tymbark \nJabłko-wiśnia"))
+zdjecie_11 = Button(ramka_nr_4, image = tymbark_jablko_kiwi, text = "tymbark_jablko_kiwi", background = "white", borderwidth = 0, command = lambda: tk.opis("Tymbark \nJabłko-kiwi"))
+zdjecie_12 = Button(ramka_nr_4, image = kubus_banan_jablko_marchewka, text = "kubus_banan_jablko_marchewka", background = "white", borderwidth = 0, command = lambda: tk.opis("Kubuś \nBanan-jabłko-marchewka"))
+zdjecie_13 = Button(ramka_nr_4, image = kubus_mango_brzoskwinia_banan, text = "kubus_mango_brzoskwinia_banan", background = "white", borderwidth = 0, command = lambda: tk.opis("Kubuś \nMango-brzoskwinia-banan"))
+zdjecie_14 = Button(ramka_nr_4, image = smoothie_truskawka_jablko, text = "smoothie_truskawka_jablko", background = "white", borderwidth = 0, command = lambda: tk.opis("Smoothie \nTruskawka-jabłko"))
+zdjecie_15 = Button(ramka_nr_4, image = coca_cola, text = "coca_cola", background = "white", borderwidth = 0, command = lambda: tk.opis("Coca_cola"))
+zdjecie_16 = Button(ramka_nr_4, image = pepsi, text = "pepsi", background = "white", borderwidth = 0, command = lambda: tk.opis("Pepsi"))
+zdjecie_17 = Button(ramka_nr_4, image = fanta, text = "fanta", background = "white", borderwidth = 0, command = lambda: tk.opis("Fanta"))
+zdjecie_18 = Button(ramka_nr_4, image = mirynda, text = "mirynda", background = "white", borderwidth = 0, command = lambda: tk.opis("Mirynda"))
+zdjecie_19 = Button(ramka_nr_4, image = sprite, text = "sprite", background = "white", borderwidth = 0, command = lambda: tk.opis("Sprite"))
+zdjecie_20 = Button(ramka_nr_4, image = tiger, text = "tiger", background = "white", borderwidth = 0, command = lambda: tk.opis("Tiger"))
+zdjecie_21 = Button(ramka_nr_4, image = black, text = "black", background = "white", borderwidth = 0, command = lambda: tk.opis("Black"))
 
 zdjecie_1.place(relx = 0.01, rely = 0.01, relwidth = 0.08, relheight = 0.35)
 zdjecie_2.place(relx = 0.10, rely = 0.015, relwidth = 0.07, relheight = 0.35)
