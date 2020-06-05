@@ -20,11 +20,11 @@ class Tkinter(object):
     d = 0
 
     def __init__(self):
-        wypisz = self.wypisz
-        wrzucone = self.wrzucone
-        cena = self.cena
-        lista = self.lista
-        roznica = self.roznica
+        self.wypisz = Tkinter.wypisz
+        self.wrzucone = Tkinter.wrzucone
+        self.cena = Tkinter.cena
+        self.lista = Tkinter.lista
+        self.roznica = Tkinter.roznica
         self.d = system.ObslugaAutomatu(self.numer)
         self.g = system.Monety()
 
